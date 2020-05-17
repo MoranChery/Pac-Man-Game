@@ -1,0 +1,14 @@
+body{
+    margin: 30px 30px 30px 30px;
+}
+
+#Welcome{
+    margin-left: 30%;
+    margin-top: 5%;
+}
+
+button[name="WelcomeButton"]{
+    color: hotpink;
+    margin: auto;
+
+}

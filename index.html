@@ -1,0 +1,48 @@
+<html>
+<head>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!--Java Script-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script type="text/javascript" src="app.js"></script>
+
+    <!--CSS-->
+    <link rel="stylesheet" type="text/css" href="welcomeDiv.css">
+
+    <title>Football System</title>
+
+</head>
+
+<body>
+
+    <div id="Welcome">
+        <h1 id="titleWelcome"> Welcome to our Football web </h1>
+        <button name="WelcomeButton" onclick="logIn()" >Log in</button>
+        <button name="WelcomeButton" onclick="signIn()">Sign in</button>
+        <button name="WelcomeButton" > Continue as a guest</button>
+    </div>
+
+
+    <div  id="LogIn" style="display: none;">
+
+        <h1> Log in</h1>
+
+        <form>
+            Enter User Name: <input type="text" name="user"><br>
+            Enter password : <input type="password" name="pass"><br>
+            <button type="button" onclick="getUserScreen()">Log in</button>
+        </form>
+
+    </div>
+
+
+    <div id="SignIn" style="display: none;">
+
+        <h1> Sign In</h1>
+
+    </div>
+
+
+</body>
+</html>
