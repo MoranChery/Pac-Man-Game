@@ -15,33 +15,46 @@
 </head>
 
 <body>
-
-    <div id="Welcome">
-        <h1 id="titleWelcome"> Welcome to our Football web </h1>
-        <button name="WelcomeButton" onclick="logIn()" >Log in</button>
-        <button name="WelcomeButton" onclick="signIn()">Sign in</button>
-        <button name="WelcomeButton" > Continue as a guest</button>
+<div id="WelcomeDiv">
+    <div class="Welcome-container">
+        <div class="Welcome-frame">
+                <span class="Welcome-form-title">Welcome to our Football Web </span>
+                <ul class="buttons">
+                    <button name="WelcomeButton" id="myBtn" onclick="getLogInDiv()" >Log in</button>
+                    <button name="WelcomeButton">Sign in</button>
+                    <button name="WelcomeButton"> Continue as a guest</button>
+                </ul>
+        </div>
     </div>
+</div>
 
 
-    <div  id="LogIn" style="display: none;">
+<div id="LogInDiv" class="modal">
+    <div class="modal-content">
+        <div class="modal-header">
+            <span class="close">&times;</span>
+            <h1> Log in</h1>
+            <form>
+                Enter User Name: <input type="text" id="user"><br>
+                Enter password : <input type="password" id="pass"><br>
+                <button name="LogInButton" type="button" onclick="logIn()">Log in</button>
+            </form>
 
-        <h1> Log in</h1>
-
-        <form>
-            Enter User Name: <input type="text" name="user"><br>
-            Enter password : <input type="password" name="pass"><br>
-            <button type="button" onclick="getUserScreen()">Log in</button>
-        </form>
-
+        </div>
     </div>
+</div>
+<div  id="LogIn" style="display: none;">
 
 
-    <div id="SignIn" style="display: none;">
 
-        <h1> Sign In</h1>
+</div>
 
-    </div>
+
+<div id="SignIn" style="display: none;">
+
+    <h1> Sign In</h1>
+
+</div>
 
 
 </body>
