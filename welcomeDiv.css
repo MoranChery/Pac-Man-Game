@@ -156,9 +156,7 @@ button[name="LogInButton"]:hover {
     padding: 8px;
 }
 
-#alertTable tr:nth-child(even){background-color: #f2f2f2;}
-
-#alertTable tr:hover {background-color: #ddd;}
+#alertTable tr:nth-child(even){background-color: #85f265;}
 
 #alertTable th {
     padding-top: 12px;

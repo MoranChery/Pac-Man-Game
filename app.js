@@ -54,6 +54,13 @@ function logIn() {
     });
 }
 
+function deleteTableRow() {
+    var tableDel =document.getElementById("alertTable")
+    for (var i =1 ; i<tableDel.rows.length ; i++) {
+        tableDel.deleteRow(i);
+    }
+}
+
 function showAlertOfUser(data) {
     var table = document.getElementById("alertTable");
     for (var k in data) {
@@ -77,16 +84,19 @@ function showAlertOfUser(data) {
     // When the user clicks on <span> (x), close the modal
     span.onclick = function() {
         modal.style.display = "none";
+        deleteTableRow();
     }
 
     // When the user clicks anywhere outside of the modal, close it
     window.onclick = function(event) {
         if (event.target == modal) {
             modal.style.display = "none";
+            deleteTableRow();
         }
     }
     $(document).keydown(function(event) {
         if (event.keyCode == 27) {
+            deleteTableRow();
             $('#AlertDiv').hide();
         }
     });
@@ -108,6 +118,7 @@ function getAlerts(){
 
     });
 
-    setTimeout(getAlerts, 60000); //todo  - need to change to 10 min - now is 1 min
+    // Every 30 minutes, an alert appears
+    setTimeout(getAlerts, 3000000);
 
 }
