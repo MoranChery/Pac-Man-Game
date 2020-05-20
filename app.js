@@ -101,11 +101,9 @@ function getAlerts(){
         type: 'GET',
         contentType: 'application/json',
         success: function(data){
-            alert("get to alerts");
             showAlertOfUser(data);
         },
         error: function(xhr){
-            //alert("get here error");
         }
 
     });
