@@ -2,9 +2,30 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+
+    <script type="text/javascript" src="app.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <title>Title</title>
 </head>
 <body>
+
+<div id="AlertDiv" class="modal">
+    <div class="modal-content">
+        <div class="modal-header">
+            <span class="close">&times;</span>
+            <h1> Alerts:</h1>
+            <table id = "alertTable">
+                <tr>
+                    <td>Head's Message:</td>
+                    <td>Message:</td>
+                </tr>
+        </div>
+    </div>
+</div>
+
+<script>
+    getAlerts();
+</script>
 
 </body>
 </html>

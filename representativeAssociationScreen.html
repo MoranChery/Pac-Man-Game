@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+    <script type="text/javascript" src="app.js"></script>
+    <script type="text/javascript" src="representativeAssociationFun.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="welcomeDiv.css">
+
+
+    <title>Representative Association</title>
+</head>
+<body>
+
+<div id="AlertDiv" class="modal">
+    <div class="modal-content">
+        <div class="modal-header">
+            <span class="close">&times;</span>
+            <h1> Alerts:</h1>
+            <table id = "alertTable">
+                <tr>
+                    <td>Head's Message:</td>
+                    <td>Message:</td>
+                </tr>
+
+            </table>
+        </div>
+    </div>
+</div>
+
+
+<div id="WelcomeDiv">
+    <div class="Welcome-container">
+        <div class="Welcome-frame">
+            <ul class="buttons">
+                <button name="WelcomeButton" id="btnChangePointsPolicy" onclick="changeCalculateLeaguePointsPolicy()" >Change Calculate League Points Policy</button>
+                <button name="WelcomeButton" id="btnChangeGameDate" onclick="changeGameDate()" >Change Game Date</button>
+                <button name="WelcomeButton" id="btnChangeGameLocation" onclick="changeGameLocation()" >Change Game Location</button>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<div id="ChangePointsPolicyDiv" class="modal">
+    <div class="modal-content">
+        <div class="modal-header">
+            <span class="close">&times;</span>
+            <h1> Log in</h1>
+            <form>
+                Enter User Name: <input type="text" id="user"><br>
+                Enter password : <input type="password" id="pass"><br>
+                <button name="ChangePointsPolicyButton" type="button" onclick="logIn()">Log in</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+<script>
+    getAlerts();
+</script>
+
+</body>
+</html>
