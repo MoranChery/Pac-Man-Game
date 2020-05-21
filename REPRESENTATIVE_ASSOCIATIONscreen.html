@@ -3,12 +3,15 @@
 <head>
     <meta charset="UTF-8">
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
     <script type="text/javascript" src="app.js"></script>
+
     <script type="text/javascript" src="representativeAssociationFun.js"></script>
 
     <link rel="stylesheet" type="text/css" href="welcomeDiv.css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
 
     <title>Representative Association</title>
 
@@ -44,16 +47,25 @@
     </div>
 </div>
 
+
 <div id="ChangePointsPolicyDiv" class="modal">
     <div class="modal-content">
         <div class="modal-header">
-            <span class="close">&times;</span>
-            <h1> Log in</h1>
-            <form>
-                Enter User Name: <input type="text" id="user"><br>
-                Enter password : <input type="password" id="pass"><br>
-                <button name="ChangePointsPolicyButton" type="button" onclick="logIn()">Log in</button>
-            </form>
+            <span class="closeChangePointsPolicyDiv">&times;</span>
+            <h1>Change Calculate League Points Policy </h1>
+            <div id="chooseLeagueSeason">
+                <label>Choose League - Season :</label>
+                <select id="league">
+                </select>
+            </div>
+            <div id="choosePolicy">
+                <label>Choose policy:</label>
+                <select id="policy">
+                    <option value="volvo">Volvo</option>
+                    <option value="saab">Saab</option>
+                </select>
+            </div>
+            <button id="ChangePointsPolicyButton" type="button" onclick="changePolicy()" >Change Policy</button>
         </div>
     </div>
 </div>

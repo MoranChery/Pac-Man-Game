@@ -44,9 +44,8 @@ function logIn() {
         type: 'GET',
         contentType: 'application/json',
         success: function(data){
-            var screen = data.UserType+"Screen.html";
             localStorage.setItem("user" , userEmail );
-            window.location=screen;
+            getRoles();
         },
         error: function(xhr){
              alert(xhr.responseJSON.message);
@@ -121,4 +120,67 @@ function getAlerts(){
     // Every 30 minutes, an alert appears
     setTimeout(getAlerts, 3000000);
 
+}
+
+function showRoleType(data){
+    var select = document.getElementById("roles");
+    for (var k in data) {
+        var option = document.createElement("option");
+        option.text = data[k];
+        select.add(option);
+    }
+    var modalLogIn = document.getElementById("LogInDiv");
+    modalLogIn.style.display = "none";
+    var modalChooseRole =document.getElementById("ChooseRole");
+    modalChooseRole.style.display = "block";
+
+    var span = document.getElementsByClassName("closeChooseRole")[0];
+
+    span.onclick = function() {
+        modalChooseRole.style.display = "none";
+        deleteSelecteList();
+    }
+
+    // When the user clicks anywhere outside of the modal, close it
+    window.onclick = function(event) {
+        if (event.target == modalChooseRole) {
+            modalChooseRole.style.display = "none";
+            deleteSelecteList();
+        }
+    }
+    $(document).keydown(function(event) {
+        if (event.keyCode == 27) {
+            deleteSelecteList();
+            $('#ChooseRole').hide();
+        }
+    });
+
+}
+
+function getRoles(){
+    $.ajax({
+        url: server+'getRules/'+userEmail+'/',
+        type: 'GET',
+        contentType: 'application/json',
+        success: function(data){
+            showRoleType(data);
+        },
+        error: function(xhr){
+            alert(xhr.responseJSON.message);
+        }
+    });
+}
+
+function getScreen(){
+    var select = document.getElementById("roles");
+    var screen = select.value+"screen.html";
+    window.location=screen;
+}
+
+function deleteSelecteList(){
+    var select = document.getElementById("roles");
+    var length = select.options.length;
+    for (i = length-1; i >= 0; i--) {
+        select.options[i] = null;
+    }
 }
