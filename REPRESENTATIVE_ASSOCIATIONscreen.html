@@ -5,7 +5,8 @@
 
 
     <script type="text/javascript" src="app.js"></script>
-
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <script type="text/javascript" src="representativeAssociationFun.js"></script>
 
     <link rel="stylesheet" type="text/css" href="welcomeDiv.css">
@@ -39,7 +40,7 @@
     <div class="Welcome-container">
         <div class="Welcome-frame">
             <ul class="buttons">
-                <button name="WelcomeButton" id="btnChangePointsPolicy" onclick="changeCalculateLeaguePointsPolicy()" >Change Calculate League Points Policy</button>
+                <button name="WelcomeButton" id="btnChangePointsPolicy" onclick="getLeagueSeason()" >Change Calculate League Points Policy</button>
                 <button name="WelcomeButton" id="btnChangeGameDate" onclick="changeGameDate()" >Change Game Date</button>
                 <button name="WelcomeButton" id="btnChangeGameLocation" onclick="changeGameLocation()" >Change Game Location</button>
             </ul>
@@ -55,17 +56,29 @@
             <h1>Change Calculate League Points Policy </h1>
             <div id="chooseLeagueSeason">
                 <label>Choose League - Season :</label>
-                <select id="league">
+                <select id="leagueSeason">
                 </select>
             </div>
             <div id="choosePolicy">
                 <label>Choose policy:</label>
                 <select id="policy">
-                    <option value="volvo">Volvo</option>
-                    <option value="saab">Saab</option>
                 </select>
             </div>
             <button id="ChangePointsPolicyButton" type="button" onclick="changePolicy()" >Change Policy</button>
+        </div>
+    </div>
+</div>
+
+
+
+<div id="changeGameDateDiv" class="modal">
+    <div class="modal-content">
+        <div class="modal-header">
+            <span class="closeChangePointsPolicyDiv">&times;</span>
+            <h1>Change Game Date</h1>
+            <label>Choose Date:</label>
+            <input id="dateField" type='date' ></input>
+            <button id="changeGameDateDivButton" type="button" onclick="changeDate()" >Change Policy</button>
         </div>
     </div>
 </div>
@@ -75,5 +88,7 @@
 <script>
     getAlerts();
 </script>
+
+
 
 </html>

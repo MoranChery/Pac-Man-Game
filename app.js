@@ -1,6 +1,5 @@
 var server = 'http://localhost:9000/';
 var userEmail;
-var interval;
 
 function getLogInDiv(){
 
