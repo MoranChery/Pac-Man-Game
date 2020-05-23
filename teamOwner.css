@@ -1,0 +1,198 @@
+body{
+    background-image: url("footballBeck.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin-top: 35%;
+    overflow: auto; /* Enable scroll if needed */
+}
+
+* { font: 17px Calibri; }
+table {
+    table-layout: auto;
+    width: 100%;
+}
+
+table, th, td {
+    border: solid 1px #DDD;
+    border-collapse: collapse;
+    padding: 2px 3px;
+    text-align: center;
+}
+input {
+    float: left;
+}
+label{
+    float: left;
+}
+
+div.ex3{
+    background-color:darkseagreen ;
+    width: 100%;
+    height: 200px;
+    overflow: auto;
+}
+
+.Welcome-container{
+    margin-left: 60%;
+    margin-top: 30%;
+    backdrop-filter: blur(15px);
+    text-align: center;
+}
+
+.Welcome-form-title {
+    font-family: Poppins-Regular;
+    font-size: 35px;
+    line-height: 1.2;
+    text-align: center;
+}
+
+.Welcome-frame{
+    margin-bottom: 10%;
+    padding: 5px 5px 5px 5px;
+    backdrop-filter: blur(10px);
+    text-align: center;
+    font-weight: bold;
+}
+
+button[name="btnCreateNewTeam"]{
+    color: #1db82c;
+    border: none;
+    padding: 0.6em 1em;
+    background: #55b875;
+    font-family: 'Open Sans',sans-serif;
+    font-size: 1em;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    cursor: pointer;
+    font-weight: bold;
+    margin: 3px 2px;
+    border-radius: 2px;
+    box-shadow: inset 0 0 5px #939aa000,
+    inset 0 0 10px #97aabb65,
+    inset 0 0 15px #89b481;
+    width: 70%;
+}
+
+button[name="btnCreateNewTeam"]:hover {
+    background: rgba(255, 255, 255, 0.479);
+}
+
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    padding-top: 20px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+    margin: auto;
+}
+
+/* Modal Content */
+.modal-content {
+    position: fixed;
+    background-color: #55b875;
+    margin: auto;
+    padding: 0;
+    border: 1px solid #888;
+    width: 100%;
+    height: 590px;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+    -webkit-animation-name: animatetop;
+    -webkit-animation-duration: 0.4s;
+    animation-name: animatetop;
+    animation-duration: 0.4s;
+    overflow: auto; /* Enable scroll if needed */
+    margin: auto;
+}
+
+/* Add Animation */
+@-webkit-keyframes animatetop {
+    from {top:-300px; opacity:0}
+    to {top:0; opacity:1}
+}
+
+@keyframes animatetop {
+    from {top:-300px; opacity:0}
+    to {top:0; opacity:1}
+}
+
+/* The Close Button */
+.close {
+    color: white;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.modal-header {
+    padding: 1px 16px;
+    background-color: #55b875;
+    color: white;
+    font-family: Poppins-Regular;
+    font-size: 20px;
+    text-align: center;
+}
+
+.modal-body {
+    padding: 1px 16px;
+    color: white;
+    font-family: Poppins-Regular;
+    font-size: 20px;
+    text-align: center;
+}
+
+.bt{
+    color: #7ab479;
+    border: none;
+    padding: 0.6em 1em;
+    background: black;
+    font-family: 'Open Sans',sans-serif;
+    font-size: 1em;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    cursor: pointer;
+    font-weight: bold;
+    margin: 3px 2px;
+    border-radius: 2px;
+    box-shadow: inset 0 0 5px #939aa000,
+    inset 0 0 10px #97aabb65,
+    inset 0 0 15px #89b481;
+    width: 300px;
+}
+
+.bt:hover {
+    background: rgba(255, 255, 255, 0.479);
+}
+#alertTable{
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+#alertTable td, #alertTable th {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+#alertTable tr:nth-child(even){background-color: #85f265;}
+
+#alertTable th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #4CAF50;
+    color: white;
+}

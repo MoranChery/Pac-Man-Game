@@ -2,14 +2,18 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-
-    <script type="text/javascript" src="app.js"></script>
+    <script type="text/javascript" src="teamOwnerScreen.js"></script>
+<!--    <script type="text/javascript" src="app.js"></script>-->
+    <link rel="stylesheet" type="text/css" href="teamOwner.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <title>Title</title>
-</head>
-<body>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 
-<div id="AlertDiv" class="modal">
+    <title>Team Owner</title>
+</head>
+<body  onload="createTables()">
+
+<div id="AlertDiv" class="modal" >
     <div class="modal-content">
         <div class="modal-header">
             <span class="close">&times;</span>
@@ -19,13 +23,72 @@
                     <td>Subject:</td>
                     <td>Message:</td>
                 </tr>
+            </table>
+            <br>
         </div>
     </div>
 </div>
 
-<script>
-    getAlerts();
-</script>
+<div id="TeamOwnerDiv">
+    <div class="Welcome-container">
+        <div class="Welcome-frame">
+            <ul class="buttons">
+                <button name="createNewTeamButton" id="btnCreateNewTeam" onclick="getCreateTeamDiv()" class="bt">Create New Team</button>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<div id="CreateNewTeamDiv" class="modal">
+    <div class="modal-content">
+        <div class="modal-header">
+            <span onclick="document.getElementById('CreateNewTeamDiv').style.display='none'" class="bt">&times;</span>
+            <p style="font-size:30px"> Enter new team details:</p>
+
+            <label for="teamName">Team Name:</label>
+            <input type="text" id="teamName" name="teamName"><br><br>
+
+            <label for="email">Your Email Address:</label>
+            <input type="text" id="email" name="email"><br><br>
+
+            <label for="courtName">Court Name:</label>
+            <input type="text" id="courtName" name="courtName"><br><br>
+
+            <label for="courtCity">Court City:</label>
+            <input type="text" id="courtCity" name="courtCity"><br><br>
+
+            <label for="budget">Budget:</label>
+            <input type="text" id="budget" name="budget"><br><br>
+
+            <p><input type="button" id="addPlayer" value="Add Player" onclick="addPlayer()" class="bt"/></p>
+            <br>
+            <br>
+            <div id="playersDiv" class="ex3"></div>  <!-- the container to add the players TABLE -->
+
+            <p><input type="button" id="addCoach" value="Add Coach" onclick="addCoach()" class="bt"/></p>
+            <br>
+            <br>
+            <div id="coachesDiv" class="ex3"></div>  <!-- the container to add the players TABLE -->
+
+            <p><input type="button" id="addTeamManager" value="Add team manager" onclick="addTeamManager()" class="bt" /></p>
+            <br>
+            <br>
+            <div id="teamManagersDiv" class="ex3"></div>  <!-- the container to add the players TABLE -->
+
+            <p><input type="button" id="bt" value="Submit Data" onclick="submit()" class="bt"/></p>
+            <p id='output'></p>
+            <br>
+            <br>
+            <br>
+        </div>
+    </div>
+</div>
+
 
 </body>
+
+<script>
+    // getAlerts();
+</script>
+
 </html>
