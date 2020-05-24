@@ -1,6 +1,10 @@
 var server = 'http://localhost:9000/';
 var userEmail;
 
+function welcomLoadHtmlButton() {
+    document.getElementById("myBtn").click();
+}
+
 function getLogInDiv(){
 
     // Get the modal
@@ -102,23 +106,18 @@ function showAlertOfUser(data) {
 
 function getAlerts(){
     userEmail  = localStorage.getItem("user");
-
     $.ajax({
-
         url: server+'getAlerts/' + userEmail,
         type: 'GET',
         contentType: 'application/json',
-        success: function(data){
-            showAlertOfUser(data);
-        },
-        error: function(xhr){
+        success: function(data) {
+            if (data[0]!=null) {
+                showAlertOfUser(data);
+            }
         }
-
     });
-
     // Every 30 minutes, an alert appears
-    setTimeout(getAlerts, 3000000);
-
+    setTimeout(getAlerts, 1800000);
 }
 
 function showRoleType(data){

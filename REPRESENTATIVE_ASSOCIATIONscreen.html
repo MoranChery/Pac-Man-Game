@@ -7,9 +7,11 @@
     <script type="text/javascript" src="app.js"></script>
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+    <script type="text/javascript" src="app.js"></script>
     <script type="text/javascript" src="representativeAssociationFun.js"></script>
 
-    <link rel="stylesheet" type="text/css" href="welcomeDiv.css">
+    <link rel="stylesheet" type="text/css" href="representativeAssociationCSS.css">
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
@@ -17,7 +19,8 @@
     <title>Representative Association</title>
 
 </head>
-<body>
+
+<body onload="repAssLoadHtmlButton()">
 
 <div id="AlertDiv" class="modal">
     <div class="modal-content">
@@ -30,7 +33,7 @@
                     <td>Message:</td>
                 </tr>
             </table>
-        <br>
+            <br>
         </div>
     </div>
 </div>
@@ -41,13 +44,11 @@
         <div class="Welcome-frame">
             <ul class="buttons">
                 <button name="WelcomeButton" id="btnChangePointsPolicy" onclick="getLeagueSeason()" >Change Calculate League Points Policy</button>
-                <button name="WelcomeButton" id="btnChangeGameDate" onclick="changeGameDate()" >Change Game Date</button>
-                <button name="WelcomeButton" id="btnChangeGameLocation" onclick="changeGameLocation()" >Change Game Location</button>
+                <button name="WelcomeButton" id="btnGameBoard" onclick="getGameDetailsDiv()" >Board Games </button>
             </ul>
         </div>
     </div>
 </div>
-
 
 <div id="ChangePointsPolicyDiv" class="modal">
     <div class="modal-content">
@@ -64,31 +65,85 @@
                 <select id="policy">
                 </select>
             </div>
-            <button id="ChangePointsPolicyButton" type="button" onclick="changePolicy()" >Change Policy</button>
+            <br>
+            <button name="buttonModal" id="ChangePointsPolicyButton" type="button" onclick="changePolicy()" >Change Policy</button>
+        </div>
+    </div>
+</div>
+
+<div id="gamesDetails" class="modal">
+    <div class="modal-content">
+        <div class="modal-header">
+            <span class="closeChangeGame">&times;</span>
+            <h1>Choose Game:</h1>
+            <table id = "games">
+                <tr>
+                    <td>Game ID:</td>
+                    <td>Team 1:</td>
+                    <td>Team 2:</td>
+                    <td>Date:</td>
+                    <td>Location:</td>
+                </tr>
+            </table>
+            <br>
+        </div>
+    </div>
+</div>
+
+<div id="chosenGame" class="modal">
+    <div class="modal-content">
+        <div class="modal-header">
+            <span class="closeChosenGame">&times;</span>
+            <table id = "chosenGameDetails">
+                <tr>
+                    <td>Game ID:</td>
+                    <td>Team 1:</td>
+                    <td>Team 2:</td>
+                    <td>Date:</td>
+                    <td>Location:</td>
+                </tr>
+                <tr>
+                    <td id = "gameID"></td>
+                    <td id="team1"></td>
+                    <td id="team2"></td>
+                    <td id="date"></td>
+                    <td id="location"></td>
+                </tr>
+            </table>
+            <button name="buttonModal" id="changeGameDateBtn" onclick="changeGameDate()"> Change Game Date</button>
+            <button name="buttonModal" id="changeGameLocationBtn" onclick="changeGameLocation()"> change Game Location</button>
+
+        </div>
+    </div>
+</div>
+
+<div id="changeGameDateDiv" class="modal">
+    <div class="modal-content">
+        <div class="modal-header">
+            <span class="closeChangeGameDate">&times;</span>
+            <label>Choose Date:</label>
+            <input id="dateField" type='date'>
+            <br>
+            <button name="buttonModal" id="changeGameDateDivButton" type="button" onclick="changeDate()" >Change Date</button>
         </div>
     </div>
 </div>
 
 
-
-<div id="changeGameDateDiv" class="modal">
+<div id="changeGameLocationDiv" class="modal">
     <div class="modal-content">
         <div class="modal-header">
-            <span class="closeChangePointsPolicyDiv">&times;</span>
-            <h1>Change Game Date</h1>
-            <label>Choose Date:</label>
-            <input id="dateField" type='date' ></input>
-            <button id="changeGameDateDivButton" type="button" onclick="changeDate()" >Change Policy</button>
+            <span class="closeChangeGameLocation">&times;</span>
+            <label>Choose Location:</label>
+            <select id="locationChoose">
+            </select>
+            <br>
+            <button name="buttonModal" id="changeGameLocationDivButton" type="button" onclick="changeLocation()" >Change Location</button>
         </div>
     </div>
 </div>
 
 </body>
-
-<script>
-    getAlerts();
-</script>
-
 
 
 </html>
