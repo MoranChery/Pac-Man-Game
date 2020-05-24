@@ -26,14 +26,6 @@ label{
     float: left;
 }
 
-div.ex3{
-    background-color:darkseagreen ;
-    width: 100%;
-    height: 200px;
-    overflow: auto;
-}
-
-
 .Welcome-container{
     margin-left: 60%;
     margin-top: 15%;
@@ -55,29 +47,6 @@ div.ex3{
     backdrop-filter: blur(10px);
     text-align: center;
     font-weight: bold;
-}
-
-button[name="btnCreateNewTeam"]{
-    color: #1db82c;
-    border: none;
-    padding: 0.6em 1em;
-    background: #55b875;
-    font-family: 'Open Sans',sans-serif;
-    font-size: 1em;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    cursor: pointer;
-    font-weight: bold;
-    margin: 3px 2px;
-    border-radius: 2px;
-    box-shadow: inset 0 0 5px #939aa000,
-    inset 0 0 10px #97aabb65,
-    inset 0 0 15px #89b481;
-    width: 70%;
-}
-
-button[name="btnCreateNewTeam"]:hover {
-    background: rgba(255, 255, 255, 0.479);
 }
 
 .modal {
@@ -200,18 +169,12 @@ button[name="btnCreateNewTeam"]:hover {
     color: white;
 }
 
-#submitNewCoach, #submitNewTeam, #submitNewPlayer{
+#JudgeDiv{
+    position: absolute;
+}
+
+#submitAddEvent, #submitUpdateGameEventAfterEnd, #submitCreateReportForGame{
     position: absolute;
     top: 70%;
     left: 520px;
-}
-
-#submitNewTeamManager{
-    position: absolute;
-    top: 700px;
-    left: 520px;
-}
-
-#TeamOwnerDiv{
-    position: absolute;
 }

@@ -3,22 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <script type="text/javascript" src="teamOwnerScreen.js"></script>
-<!--    <script type="text/javascript" src="app.js"></script>-->
     <link rel="stylesheet" type="text/css" href="teamOwner.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <!--    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">-->
 
     <title>Team Owner</title>
 </head>
-<body  onload="createTables()">
+<body>
 
-<div id="AlertDiv" class="modal" >
+<div id="AlertDiv" class="modal">
     <div class="modal-content">
         <div class="modal-header">
             <span class="close">&times;</span>
             <h1> Alerts:</h1>
-            <table id = "alertTable">
+            <table id="alertTable">
                 <tr>
                     <td>Subject:</td>
                     <td>Message:</td>
@@ -33,8 +32,203 @@
     <div class="Welcome-container">
         <div class="Welcome-frame">
             <ul class="buttons">
-                <button name="createNewTeamButton" id="btnCreateNewTeam" onclick="getCreateTeamDiv()" class="bt">Create New Team</button>
+                <button name="createNewTeamButton" id="btnCreateNewTeam" onclick="getCreateTeamDiv()" class="bt">Create
+                    New Team
+                </button>
+                <button name="addPlayerButton" id="btnAddPlayer" onclick="getAddPlayerDiv()" class="bt">Add Player
+                </button>
+                <button name="addCoachButton" id="btnAddCoach" onclick="getAddCoachDiv()" class="bt">Add Coach</button>
+                <button name="addTeamManagerButton" id="btnAddTeamManager" onclick="getAddTeamManagerDiv()" class="bt">
+                    Add Team Manager
+                </button>
             </ul>
+        </div>
+    </div>
+</div>
+
+
+<div id="AddPlayerDiv" class="modal">
+    <div class="modal-content">
+        <div class="modal-header">
+            <span onclick="document.getElementById('AddPlayerDiv').style.display='none'" class="bt">&times;</span>
+            <p style="font-size:30px"> Enter new player details:</p>
+            <form id="AddPlayerForm">
+                <table style="width:400px ; margin-left:auto;margin-right:auto;">
+                    <tr>
+                        <th><label for="teamName">Team Name:</label></th>
+                        <th><input type="text" id="teamNameP" name="teamName"></th>
+                    </tr>
+                    <tr>
+                        <th><label for="email">Team Owner Email Address:</label></th>
+                        <th><input type="text" id="emailP" name="email"></th>
+                    </tr>
+                    <tr>
+                        <th><label for="playerEmail">Player Email:</label></th>
+                        <th><input type="text" id="playerEmail" name="playerEmail"></th>
+                    </tr>
+                    <tr>
+                        <th><label for="playerId">Player ID:</label></th>
+                        <th><input type="text" id="playerId" name="playerId"></th>
+                    </tr>
+                    <tr>
+                        <th><label for="playerFName">Player First Name:</label></th>
+                        <th><input type="text" id="playerFName" name="playerFName"></th>
+                    </tr>
+                    <tr>
+                        <th><label for="playerLName">Player Last Name:</label></th>
+                        <th><input type="text" id="playerLName" name="playerLName"></th>
+                    </tr>
+                    <tr>
+                        <th><label for="playerBD">Player Birth Date:</label></th>
+                        <th><input type="date" id="playerBD" name="playerBD"></th>
+                    </tr>
+                    <tr>
+                        <th><label for="playerRole">Player Role:</label></th>
+                        <th><input type="text" id="playerRole" name="playerRole"></th>
+                    </tr>
+                </table>
+            </form>
+            <p><input type="button" id="submitNewPlayer" value="Submit" onclick="submitNewPlayer()" class="bt"/></p>
+            <br>
+            <br>
+            <br>
+        </div>
+    </div>
+</div>
+
+<div id="AddCoachDiv" class="modal">
+    <div class="modal-content">
+        <div class="modal-header">
+            <span onclick="document.getElementById('AddCoachDiv').style.display='none'" class="bt">&times;</span>
+            <p style="font-size:30px"> Enter new coach details:</p>
+            <form id="AddCoachForm">
+                <table style="width:400px ; margin-left:auto;margin-right:auto;">
+                    <tr>
+                        <th><label for="teamName">Team Name:</label></th>
+                        <th><input type="text" id="teamNameC" name="teamName"></th>
+                    </tr>
+                    <tr>
+                        <th><label for="email">Team Owner Email Address:</label></th>
+                        <th><input type="text" id="emailC" name="email"></th>
+                    </tr>
+                    <tr>
+                        <th><label for="coachEmail">Coach Email:</label></th>
+                        <th><input type="text" id="coachEmail" name="coachEmail"></th>
+                    </tr>
+                    <tr>
+                        <th><label for="coachId">Coach ID:</label></th>
+                        <th><input type="text" id="coachId" name="coachId"></th>
+                    </tr>
+                    <tr>
+                        <th><label for="coachFName">Coach First Name:</label></th>
+                        <th><input type="text" id="coachFName" name="coachFName"></th>
+                    </tr>
+                    <tr>
+                        <th><label for="coachLName">Coach Last Name:</label></th>
+                        <th><input type="text" id="coachLName" name="coachLName"></th>
+                    </tr>
+                    <tr>
+                        <th><label for="coachRole">Coach Role:</label></th>
+                        <th><input type="text" id="coachRole" name="coachRole"></th>
+                    </tr>
+                    <tr>
+                        <th><label for="qualificationCoach">Qualification Coach:</label></th>
+                        <th><input type="text" id="qualificationCoach" name="qualificationCoach"></th>
+                    </tr>
+
+                </table>
+            </form>
+            <p><input type="button" id="submitNewCoach" value="Submit" onclick="submitNewCoach()" class="bt"/></p>
+            <br>
+            <br>
+            <br>
+        </div>
+    </div>
+</div>
+
+<div id="AddTeamManagerDiv" class="modal">
+    <div class="modal-content">
+        <div class="modal-header">
+            <span onclick="document.getElementById('AddTeamManagerDiv').style.display='none'" class="bt">&times;</span>
+            <p style="font-size:30px"> Enter new coach details:</p>
+            <form id="AddTeamManagerForm">
+                <table style="width:550px ; margin-left:auto;margin-right:auto">
+                    <tr>
+                        <th><label for="teamNameT">Team Name:</label></th>
+                        <th><input type="text" id="teamNameT" name="teamNameT"></th>
+                    </tr>
+                    <tr>
+                        <th><label for="email">Team Owner Email Address:</label></th>
+                        <th><input type="text" id="emailT" name="email"></th>
+                    </tr>
+                    <tr>
+                        <th><label for="teamManagerEmail">Team Manager Email:</label></th>
+                        <th><input type="text" id="teamManagerEmail" name="teamManagerEmail"></th>
+                    </tr>
+                    <tr>
+                        <th><label for="teamManagerId">Team Manager ID:</label></th>
+                        <th><input type="text" id="teamManagerId" name="teamManagerId"></th>
+                    </tr>
+                    <tr>
+                        <th><label for="teamManagerFName">Team Manager First Name:</label></th>
+                        <th><input type="text" id="teamManagerFName" name="teamManagerFName"></th>
+                    </tr>
+                    <tr>
+                        <th><label for="teamManagerLName">Team Manager Last Name:</label></th>
+                        <th><input type="text" id="teamManagerLName" name="teamManagerLName"></th>
+                    </tr>
+                    <tr>
+                        <th><label for="OwnedById">Owned By Id:</label></th>
+                        <th><input type="text" id="OwnedById" name="OwnedById"></th>
+                    </tr>
+                    <tr>
+                        <th><p>Permissions:</p></th>
+                        <th>
+                            <input type="checkbox" id="ADD_PLAYER" name="ADD_PLAYER" value="ADD_PLAYER">
+                            <label for="ADD_PLAYER"> ADD_PLAYER</label><br>
+                            <input type="checkbox" id="ADD_TEAM_MANAGER" name="ADD_TEAM_MANAGER"
+                                   value="ADD_TEAM_MANAGER">
+                            <label for="ADD_TEAM_MANAGER"> ADD_TEAM_MANAGER</label><br>
+                            <input type="checkbox" id="ADD_COACH" name="ADD_COACH" value="ADD_COACH">
+                            <label for="ADD_COACH"> ADD_COACH</label><br>
+                            <input type="checkbox" id="ADD_COURT" name="ADD_COURT" value="ADD_COURT">
+                            <label for="ADD_COURT"> ADD_COURT</label><br>
+                            <input type="checkbox" id="ADD_FINANCIAL" name="ADD_FINANCIAL" value="ADD_FINANCIAL">
+                            <label for="ADD_FINANCIAL"> ADD_FINANCIAL</label><br>
+                            <input type="checkbox" id="CHANGE_STATUS" name="CHANGE_STATUS" value="CHANGE_STATUS">
+                            <label for="CHANGE_STATUS"> CHANGE_STATUS</label><br>
+                            <input type="checkbox" id="REMOVE_PLAYER" name="REMOVE_PLAYER" value="REMOVE_PLAYER">
+                            <label for="REMOVE_PLAYER"> REMOVE_PLAYER</label><br>
+                            <input type="checkbox" id="REMOVE_TEAM_MANAGER" name="REMOVE_TEAM_MANAGER"
+                                   value="REMOVE_TEAM_MANAGER">
+                            <label for="REMOVE_TEAM_MANAGER"> REMOVE_TEAM_MANAGER</label><br>
+                            <input type="checkbox" id="REMOVE_COACH" name="REMOVE_COACH" value="REMOVE_COACH">
+                            <label for="REMOVE_COACH"> REMOVE_COACH</label><br>
+                            <input type="checkbox" id="REMOVE_COURT" name="REMOVE_COURT" value="REMOVE_COURT">
+                            <label for="REMOVE_COURT"> REMOVE_COURT</label><br>
+                            <input type="checkbox" id="OWNER" name="OWNER" value="OWNER">
+                            <label for="OWNER"> OWNER</label><br>
+                            <input type="checkbox" id="CREATE_NEW_TEAM" name="CREATE_NEW_TEAM" value="CREATE_NEW_TEAM">
+                            <label for="CREATE_NEW_TEAM"> CREATE_NEW_TEAM</label><br>
+                            <input type="checkbox" id="UPDATE_COACH" name="UPDATE_COACH" value="UPDATE_COACH">
+                            <label for="UPDATE_COACH"> UPDATE_COACH</label><br>
+                            <input type="checkbox" id="UPDATE_PLAYER" name="UPDATE_PLAYER" value="UPDATE_PLAYER">
+                            <label for="UPDATE_PLAYER"> UPDATE_PLAYER</label><br>
+                            <input type="checkbox" id="UPDATE_COURT" name="UPDATE_COURT" value="UPDATE_COURT">
+                            <label for="UPDATE_COURT"> UPDATE_COURT</label><br>
+                            <input type="checkbox" id="UPDATE_TEAM_MANAGER" name="UPDATE_TEAM_MANAGER"
+                                   value="UPDATE_TEAM_MANAGER">
+                            <label for="UPDATE_TEAM_MANAGER"> UPDATE_TEAM_MANAGER</label><br>
+                        </th>
+                    </tr>
+
+                </table>
+            </form>
+            <p><input type="button" id="submitNewTeamManager" value="Submit" onclick="submitNewTeamManager()"
+                      class="bt"/></p>
+            <br>
+            <br>
+            <br>
         </div>
     </div>
 </div>
@@ -44,51 +238,32 @@
         <div class="modal-header">
             <span onclick="document.getElementById('CreateNewTeamDiv').style.display='none'" class="bt">&times;</span>
             <p style="font-size:30px"> Enter new team details:</p>
-
-            <label for="teamName">Team Name:</label>
-            <input type="text" id="teamName" name="teamName"><br><br>
-
-            <label for="email">Your Email Address:</label>
-            <input type="text" id="email" name="email"><br><br>
-
-            <label for="courtName">Court Name:</label>
-            <input type="text" id="courtName" name="courtName"><br><br>
-
-            <label for="courtCity">Court City:</label>
-            <input type="text" id="courtCity" name="courtCity"><br><br>
-
-            <label for="budget">Budget:</label>
-            <input type="text" id="budget" name="budget"><br><br>
-
-            <p><input type="button" id="addPlayer" value="Add Player" onclick="addPlayer()" class="bt"/></p>
-            <br>
-            <br>
-            <div id="playersDiv" class="ex3"></div>  <!-- the container to add the players TABLE -->
-
-            <p><input type="button" id="addCoach" value="Add Coach" onclick="addCoach()" class="bt"/></p>
-            <br>
-            <br>
-            <div id="coachesDiv" class="ex3"></div>  <!-- the container to add the players TABLE -->
-
-            <p><input type="button" id="addTeamManager" value="Add team manager" onclick="addTeamManager()" class="bt" /></p>
-            <br>
-            <br>
-            <div id="teamManagersDiv" class="ex3"></div>  <!-- the container to add the players TABLE -->
-
-            <p><input type="button" id="bt" value="Submit Data" onclick="submit()" class="bt"/></p>
-            <p id='output'></p>
+            <form id="CreateNewTeamForm">
+                <table style="width:550px ; margin-left:auto;margin-right:auto">
+                    <tr>
+                        <th><label for="teamName">Team Name:</label></th>
+                        <th><input type="text" id="teamName" name="teamName"></th>
+                    </tr>
+                    <tr>
+                        <th><label for="email">Team Owner Email Address:</label></th>
+                        <th><input type="text" id="email" name="email"></th>
+                    </tr>
+                    <tr>
+                        <th><label for="courtName">Court Name:</label></th>
+                        <th><input type="text" id="courtName" name="courtName"></th>
+                    </tr>
+                    <tr>
+                        <th><label for="budget">Budget:</label></th>
+                        <th><input type="text" id="budget" name="budget"></th>
+                    </tr>
+                </table>
+            </form>
+            <p><input type="button" id="submitNewTeam" value="Submit" onclick="submitNewTeam()" class="bt"/></p>
             <br>
             <br>
             <br>
         </div>
     </div>
 </div>
-
-
 </body>
-
-<script>
-    // getAlerts();
-</script>
-
 </html>

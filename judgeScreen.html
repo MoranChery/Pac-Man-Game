@@ -2,9 +2,163 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <script type="text/javascript" src="judge.js"></script>
+    <link rel="stylesheet" type="text/css" href="judge.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Judge</title>
 </head>
 <body>
 
+<div id="AlertDiv" class="modal">
+    <div class="modal-content">
+        <div class="modal-header">
+            <span class="close">&times;</span>
+            <h1> Alerts:</h1>
+            <table id="alertTable">
+                <tr>
+                    <td>Subject:</td>
+                    <td>Message:</td>
+                </tr>
+            </table>
+            <br>
+        </div>
+    </div>
+</div>
+
+<div id="JudgeDiv">
+    <div class="Welcome-container">
+        <div class="Welcome-frame">
+            <ul class="buttons">
+                <button name="addEventToGameButton" id="btnAddEventToGame" onclick="getAddEventToGameDiv()" class="bt">Add
+                    Event To Game
+                </button>
+                <button name="updateGameEventAfterEndButton" id="btnUpdateGameEventAfterEnd"
+                        onclick="getUpdateGameEventAfterEndDiv()" class="bt">Update Game Event After End
+                </button>
+                <button name="createReportForGameButton" id="btnCreateReportForGameDiv" onclick="getCreateReportForGameDiv()"
+                        class="bt">Create Report For Game
+                </button>
+            </ul>
+        </div>
+    </div>
+</div>
+
+
+<div id="AddEventToGameDiv" class="modal">
+    <div class="modal-content">
+        <div class="modal-header">
+            <span onclick="document.getElementById('AddEventToGameDiv').style.display='none'" class="bt">&times;</span>
+            <p style="font-size:30px">Enter new game event details:</p>
+            <form id="AddEventToGameForm">
+                <table style="width:550px ; margin-left:auto;margin-right:auto">
+                    <tr>
+                        <th><label for="email">Your Email Address:</label></th>
+                        <th><input type="text" id="email" name="email"></th>
+                    </tr>
+                    <tr>
+                        <th><label for="gameId">Game ID:</label></th>
+                        <th><input type="text" id="gameId" name="gameId"></th>
+                    </tr>
+                    <tr>
+                        <th><label for="eventTime">Event Time:</label></th>
+                        <th><input type="time" id="eventTime" name="eventTime"></th>
+                    </tr>
+                    <tr>
+                        <th><label for="eventMinute">Event Minute:</label></th>
+                        <th><input type="text" id="eventMinute" name="eventMinute"></th>
+                    </tr>
+                    <tr>
+                        <th><label for="gameEventType">Game Event Type:</label></th>
+                        <th><input type="text" id="gameEventType" name="gameEventType"></th>
+                    </tr>
+                    <tr>
+                        <th><label for="description">Description:</label></th>
+                        <th><input type="text" id="description" name="description"></th>
+                    </tr>
+                </table>
+            </form>
+            <p><input type="button" id="submitAddEvent" value="Submit" onclick="submitAddEvent()" class="bt"/></p>
+            <br>
+            <br>
+            <br>
+        </div>
+    </div>
+</div>
+
+<div id="UpdateGameEventAfterEndDiv" class="modal">
+    <div class="modal-content">
+        <div class="modal-header">
+            <span onclick="document.getElementById('UpdateGameEventAfterEndDiv').style.display='none'" class="bt">&times;</span>
+            <p style="font-size:30px">Enter update details for the event:</p>
+            <form id="UpdateGameEventAfterEndForm">
+                <table style="width:550px ; margin-left:auto;margin-right:auto">
+                    <tr>
+                        <th><label for="judgeMail">Your Email Address:</label></th>
+                        <th><input type="text" id="judgeMail" name="judgeMail"></th>
+                    </tr>
+                    <tr>
+                        <th><label for="gameIdU">Game ID:</label></th>
+                        <th><input type="text" id="gameIdU" name="gameIdU"></th>
+                    </tr>
+                    <tr>
+                        <th><label for="eventId">Event ID:</label></th>
+                        <th><input type="text" id="eventId" name="eventId"></th>
+                    </tr>
+                    <tr>
+                        <th><label for="eventTimeU">Event Time:</label></th>
+                        <th><input type="time" id="eventTimeU" name="eventTimeU"></th>
+                    </tr>
+                    <tr>
+                        <th><label for="eventMinuteU">Event Minute:</label></th>
+                        <th><input type="text" id="eventMinuteU" name="eventMinuteU"></th>
+                    </tr>
+                    <tr>
+                        <th><label for="gameEventTypeU">Game Event Type:</label></th>
+                        <th><input type="text" id="gameEventTypeU" name="gameEventTypeU"></th>
+                    </tr>
+                    <tr>
+                        <th><label for="descriptionU">Description:</label></th>
+                        <th><input type="text" id="descriptionU" name="descriptionU"></th>
+                    </tr>
+                </table>
+            </form>
+            <p><input type="button" id="submitUpdateGameEventAfterEnd" value="Submit" onclick="submitUpdateGameEventAfterEnd()" class="bt"/></p>
+            <br>
+            <br>
+            <br>
+        </div>
+    </div>
+</div>
+
+
+<div id="CreateReportForGameDiv" class="modal">
+    <div class="modal-content">
+        <div class="modal-header">
+            <span onclick="document.getElementById('CreateReportForGameDiv').style.display='none'" class="bt">&times;</span>
+            <p style="font-size:30px">Enter new game report details:</p>
+            <form id="CreateReportForGameForm">
+                <table style="width:550px ; margin-left:auto;margin-right:auto">
+                    <tr>
+                        <th><label for="i_file">Path to save the report:</label></th>
+                        <th><input type="file" id="i_file" name="path"></th>
+                    </tr>
+                    <tr>
+                        <th><label for="judgeMailC">Judge Email:</label></th>
+                        <th><input type="text" id="judgeMailC" name="judgeMailC"></th>
+                    </tr>
+                    <tr>
+                        <th><label for="gameIdC">Game ID:</label></th>
+                        <th><input type="text" id="gameIdC" name="gameIdC"></th>
+                    </tr>
+                </table>
+            </form>
+            <p><input type="button" id="submitCreateReportForGame" value="Submit" onclick="submitCreateReportForGame()" class="bt"/></p>
+            <br>
+            <br>
+            <br>
+        </div>
+    </div>
+</div>
 </body>
 </html>
