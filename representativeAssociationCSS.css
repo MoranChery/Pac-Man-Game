@@ -1,9 +1,11 @@
-body{
-    background-image: url("footballBeck.jpg");
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
+html{
+background: url(footballBeck.jpg) no-repeat center center fixed;
+-webkit-background-size: cover;
+-moz-background-size: cover;
+-o-background-size: cover;
+background-size: cover;
 }
+
 
 .Welcome-container{
     margin-left: 60%;
@@ -27,6 +29,25 @@ body{
     font-weight: bold;
 }
 
+ button[name="buttonModal"]{
+    color: #1db82c;
+    border: none;
+    padding: 0.5em 0.7em;
+    background: black;
+    font-family: 'Open Sans',sans-serif;
+    font-size: 1em;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    cursor: pointer;
+    font-weight: bold;
+    margin: 3px 2px;
+    border-radius: 2px;
+    box-shadow: inset 0 0 5px #939aa000,
+    inset 0 0 10px #97aabb65,
+    inset 0 0 15px #89b481;
+    width: 30%;
+}
+
 button[name="WelcomeButton"]{
     color: #1db82c;
     border: none;
@@ -46,9 +67,10 @@ button[name="WelcomeButton"]{
     width: 70%;
 }
 
-button[name="WelcomeButton"]:hover {
+button[name="WelcomeButton"]:hover ,button[name="buttonModal"]:hover{
     background: rgba(255, 255, 255, 0.479);
 }
+
 
 .modal {
     display: none; /* Hidden by default */
@@ -89,16 +111,35 @@ button[name="WelcomeButton"]:hover {
     from {top:-300px; opacity:0}
     to {top:0; opacity:1}
 }
-
-/* The Close Button */
-.close{
+.closeChangePointsPolicyDiv{
+    color: white;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+.closeChangeGameDate{
     color: white;
     float: right;
     font-size: 28px;
     font-weight: bold;
 }
 
-.closeChooseRole{
+.closeChangePointsPolicyDiv:hover,
+.closeChangePointsPolicyDiv:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.closeChangeGameDate:hover,
+.closeChangeGameDate:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+
+.close{
     color: white;
     float: right;
     font-size: 28px;
@@ -112,13 +153,49 @@ button[name="WelcomeButton"]:hover {
     cursor: pointer;
 }
 
+.closeChosenGame{
+    color: white;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
 
-.closeChooseRole:hover,
-.closeChooseRole:focus {
+.closeChosenGame:hover,
+.closeChosenGame:focus {
     color: #000;
     text-decoration: none;
     cursor: pointer;
 }
+
+.closeChangeGame{
+    color: white;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.closeChangeGame:hover,
+.closeChangeGame:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.closeChangeGameLocation{
+    color: white;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.closeChangeGameLocation:hover,
+.closeChangeGameLocation:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+
 
 .modal-header {
     padding: 1px 16px;
@@ -156,30 +233,10 @@ button[name="LogInButton"]{
     width: 200px;
 }
 
+
 button[name="LogInButton"]:hover {
     background: rgba(255, 255, 255, 0.479);
 }
-#alertTable{
-    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
-    border-collapse: collapse;
-    width: 100%;
-}
-
-#alertTable td, #alertTable th {
-    border: 1px solid #ddd;
-    padding: 8px;
-}
-
-#alertTable tr:nth-child(even){background-color: #85f265;}
-
-#alertTable th {
-    padding-top: 12px;
-    padding-bottom: 12px;
-    text-align: left;
-    background-color: #4CAF50;
-    color: white;
-}
-
 
 select {
     background-color: #0beeb3;
@@ -195,4 +252,31 @@ select {
 
 select option {
     padding: 30px;
+}
+
+
+#games , #alertTable, #chosenGameDetails{
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+    background-color: #77f2b2;
+}
+
+#games td, #games th, #alertTable td, #alertTable th ,#chosenGameDetails td, #chosenGameDetails th {
+    border: 1px solid #ddd;
+    padding: 8px;
+    cursor: pointer;
+}
+
+#games tr:first-child,#alertTable tr:first-child ,#chosenGameDetails tr:first-child
+{
+    background-color: #0c1509;
+}
+
+#games th , #alertTable th , #chosenGameDetails th{
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #4CAF50;
+    color: white;
 }
