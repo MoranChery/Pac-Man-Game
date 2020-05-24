@@ -30,13 +30,15 @@
     <div class="Welcome-container">
         <div class="Welcome-frame">
             <ul class="buttons">
-                <button name="addEventToGameButton" id="btnAddEventToGame" onclick="getAddEventToGameDiv()" class="bt">Add
+                <button name="addEventToGameButton" id="btnAddEventToGame" onclick="getAddEventToGameDiv()" class="bt">
+                    Add
                     Event To Game
                 </button>
                 <button name="updateGameEventAfterEndButton" id="btnUpdateGameEventAfterEnd"
                         onclick="getUpdateGameEventAfterEndDiv()" class="bt">Update Game Event After End
                 </button>
-                <button name="createReportForGameButton" id="btnCreateReportForGameDiv" onclick="getCreateReportForGameDiv()"
+                <button name="createReportForGameButton" id="btnCreateReportForGameDiv"
+                        onclick="getCreateReportForGameDiv()"
                         class="bt">Create Report For Game
                 </button>
             </ul>
@@ -70,7 +72,15 @@
                     </tr>
                     <tr>
                         <th><label for="gameEventType">Game Event Type:</label></th>
-                        <th><input type="text" id="gameEventType" name="gameEventType"></th>
+                        <th style="vertical-align: auto; text-align: left;"><select name="gameEventType" id="gameEventType">
+                            <option value="GOAL">GOAL</option>
+                            <option value="OFFSIDE">OFFSIDE</option>
+                            <option value="FOUL">FOUL</option>
+                            <option value="RED_CARD">RED_CARD</option>
+                            <option value="YELLOW_CARD">YELLOW_CARD</option>
+                            <option value="INJURY">INJURY</option>
+                            <option value="EXCHANGE_PLAYER">EXCHANGE_PLAYER</option>
+                        </select></th>
                     </tr>
                     <tr>
                         <th><label for="description">Description:</label></th>
@@ -115,7 +125,15 @@
                     </tr>
                     <tr>
                         <th><label for="gameEventTypeU">Game Event Type:</label></th>
-                        <th><input type="text" id="gameEventTypeU" name="gameEventTypeU"></th>
+                        <th style="vertical-align: auto; text-align: left;"><select name="gameEventTypeU" id="gameEventTypeU">
+                            <option value="GOAL">GOAL</option>
+                            <option value="OFFSIDE">OFFSIDE</option>
+                            <option value="FOUL">FOUL</option>
+                            <option value="RED_CARD">RED_CARD</option>
+                            <option value="YELLOW_CARD">YELLOW_CARD</option>
+                            <option value="INJURY">INJURY</option>
+                            <option value="EXCHANGE_PLAYER">EXCHANGE_PLAYER</option>
+                        </select></th>
                     </tr>
                     <tr>
                         <th><label for="descriptionU">Description:</label></th>
@@ -123,7 +141,8 @@
                     </tr>
                 </table>
             </form>
-            <p><input type="button" id="submitUpdateGameEventAfterEnd" value="Submit" onclick="submitUpdateGameEventAfterEnd()" class="bt"/></p>
+            <p><input type="button" id="submitUpdateGameEventAfterEnd" value="Submit"
+                      onclick="submitUpdateGameEventAfterEnd()" class="bt"/></p>
             <br>
             <br>
             <br>
@@ -135,7 +154,8 @@
 <div id="CreateReportForGameDiv" class="modal">
     <div class="modal-content">
         <div class="modal-header">
-            <span onclick="document.getElementById('CreateReportForGameDiv').style.display='none'" class="bt">&times;</span>
+            <span onclick="document.getElementById('CreateReportForGameDiv').style.display='none'"
+                  class="bt">&times;</span>
             <p style="font-size:30px">Enter new game report details:</p>
             <form id="CreateReportForGameForm">
                 <table style="width:550px ; margin-left:auto;margin-right:auto">
@@ -153,12 +173,22 @@
                     </tr>
                 </table>
             </form>
-            <p><input type="button" id="submitCreateReportForGame" value="Submit" onclick="submitCreateReportForGame()" class="bt"/></p>
+            <p><input type="button" id="submitCreateReportForGame" value="Submit" onclick="submitCreateReportForGame()"
+                      class="bt"/></p>
             <br>
             <br>
             <br>
         </div>
     </div>
 </div>
+
+<script>
+    $('#i_file').change( function(event) {
+        var tmppath = URL.createObjectURL(event.target.files[0]);
+        $("img").fadeIn("fast").attr('src',URL.createObjectURL(event.target.files[0]));
+
+        $("#disp_tmp_path").html("Temporary Path(Copy it and try pasting it in browser address bar) --> <strong>["+tmppath+"]</strong>");
+    });
+</script>
 </body>
 </html>

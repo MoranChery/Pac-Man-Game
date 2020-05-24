@@ -24,7 +24,7 @@ function getCreateTeamDiv() {
     }
     $(document).keydown(function (event) {
         if (event.keyCode == 27) {
-            $('#TeamOwnerDiv').hide();
+            $('#CreateNewTeamDiv').hide();
         }
     });
 }
@@ -52,7 +52,7 @@ function getAddPlayerDiv() {
     }
     $(document).keydown(function (event) {
         if (event.keyCode == 27) {
-            $('#TeamOwnerDiv').hide();
+            $('#AddPlayerDiv').hide();
         }
     });
 }
@@ -80,7 +80,7 @@ function getAddCoachDiv() {
     }
     $(document).keydown(function (event) {
         if (event.keyCode == 27) {
-            $('#TeamOwnerDiv').hide();
+            $('#AddCoachDiv').hide();
         }
     });
 }
@@ -108,11 +108,10 @@ function getAddTeamManagerDiv() {
     }
     $(document).keydown(function (event) {
         if (event.keyCode == 27) {
-            $('#TeamOwnerDiv').hide();
+            $('#AddTeamManagerDiv').hide();
         }
     });
 }
-
 
 function submitNewPlayer() {
     var emptyCell = false;
@@ -130,20 +129,20 @@ function submitNewPlayer() {
     if (!emptyCell) {
         try {
             console.log("addPlayer/" + teamName + "/" + emailP + "/" + playerEmail + "/" + playerId + "/" + playerFName + "/" + playerLName + "/" + playerBD + "/" + playerRole + "/");
+            $.ajax({
+                url: server + "addPlayer/" + teamName + "/" + emailP + "/" + playerEmail + "/" + playerId + "/" + playerFName + "/" + playerLName + "/" + playerBD + "/" + playerRole + "/",
+                type: 'GET',
+                contentType: 'application/json',
+                success: function (data) {
+                    alert("Players added to the Team ");
+                },
+                error: function (xhr) {
+                    alert(xhr.responseJSON.message);
+                }
+            });
         } catch (error) {
             alert(error);
         }
-        // $.ajax({
-        //     url: server + "addPlayer/" + teamName + "/" + emailP + "/" + playerEmail + "/" + playerId + "/" + playerFName + "/" + playerLName + "/" + playerBD + "/" + playerRole + "/",
-        //     type: 'GET',
-        //     contentType: 'application/json',
-        //     success: function (data) {
-        //         alert("Players added to the Team ");
-        //     },
-        //     error: function (xhr) {
-        //         alert(xhr.responseJSON.message);
-        //     }
-        // });
     } else {
         alert("error: Some player details are not filled appropriately");
     }
@@ -167,20 +166,20 @@ function submitNewCoach() {
     if (!emptyCell) {
         try {
             console.log("addCoach/" + teamName + "/" + emailC + "/" + coachEmail + "/" + coachId + "/" + coachFName + "/" + coachLName + "/" + coachRole + "/" + qualificationCoach + "/");
+            $.ajax({
+                url: server + "addCoach/" + teamName + "/" + emailC + "/" + coachEmail+ "/" + coachId + "/" + coachFName + "/" + coachLName + "/" + coachRole+ "/" + qualificationCoach + "/",
+                type: 'GET',
+                contentType: 'application/json',
+                success: function (data) {
+                    alert("Coaches added successfully to the team!");
+                },
+                error: function (xhr) {
+                    alert(xhr.responseJSON.message);
+                }
+            });
         } catch (error) {
             alert(error);
         }
-        // $.ajax({
-        //     url: server + "addCoach/" + teamName + "/" + emailC + "/" + coachEmail+ "/" + coachId + "/" + coachFName + "/" + coachLName + "/" + coachRole+ "/" + qualificationCoach + "/",
-        //     type: 'GET',
-        //     contentType: 'application/json',
-        //     success: function (data) {
-        //         alert("Coaches added successfully to the team!");
-        //     },
-        //     error: function (xhr) {
-        //         alert(xhr.responseJSON.message);
-        //     }
-        // });
     } else {
         alert("error: Some coach details are not filled appropriately");
     }
@@ -204,20 +203,20 @@ function submitNewTeamManager() {
     if (!emptyCell) {
         try {
             console.log("addTeamManager/" + teamName + "/" +emailT  + "/" + teamManagerEmail + "/" + teamManagerId+ "/" + teamManagerFName + "/" + teamManagerLName + "/" + permissionsString+ "/" + ownedById + "/");
+            $.ajax({
+                url: server + "addTeamManager/" + teamName + "/" +emailT  + "/" + teamManagerEmail + "/" + teamManagerId+ "/" + teamManagerFName + "/" + teamManagerLName + "/" + permissionsString+ "/" + ownedById + "/",
+                type: 'GET',
+                contentType: 'application/json',
+                success: function (data) {
+                    alert("Team Managers added successfully to the team!");
+                },
+                error: function (xhr) {
+                    alert(xhr.responseJSON.message);
+                }
+            });
         } catch (error) {
             alert(error);
         }
-        // $.ajax({
-        //     url: server + "addTeamManager/" + teamName + "/" +emailT  + "/" + teamManagerEmail + "/" + teamManagerId+ "/" + teamManagerFName + "/" + teamManagerLName + "/" + permissionsString+ "/" + ownedById + "/",
-        //     type: 'GET',
-        //     contentType: 'application/json',
-        //     success: function (data) {
-        //         alert("Team Managers added successfully to the team!");
-        //     },
-        //     error: function (xhr) {
-        //         alert(xhr.responseJSON.message);
-        //     }
-        // });
     } else {
         alert("error: Some team manager details are not filled appropriately");
     }
@@ -235,7 +234,18 @@ function submitNewTeam() {
         emptyCell = true;
     if (!emptyCell) {
         try {
-            console.log("createNewTeam/" + teamName + "/" + ownerEmail + "/" + budget + "/" + courtName + '/');
+            console.log("createNewTeam/" + teamName + "/" + ownerEmail + "/" + budget + "/" + courtName + "/");
+            $.ajax({
+                url: server + "createNewTeam/" + teamName + "/" + ownerEmail + "/" + budget + "/" + courtName + "/",
+                type: 'GET',
+                contentType: 'application/json',
+                success: function (data) {
+                    alert("new team added successfully!");
+                },
+                error: function (xhr) {
+                    alert(xhr.responseJSON.message);
+                }
+            });
         } catch (error) {
             alert(error);
         }

@@ -84,7 +84,13 @@
                     </tr>
                     <tr>
                         <th><label for="playerRole">Player Role:</label></th>
-                        <th><input type="text" id="playerRole" name="playerRole"></th>
+                        <th style="vertical-align: auto; text-align: left;"><select name="playerRole" id="playerRole">
+                            <option value="GOALKEEPER">GOALKEEPER</option>
+                            <option value="DEFENDER">DEFENDER</option>
+                            <option value="MIDFIELDER">MIDFIELDER</option>
+                            <option value="FORWARD">FORWARD</option>
+                            <option value="ATTACKER">ATTACKER</option>
+                        </select></th>
                     </tr>
                 </table>
             </form>
@@ -129,11 +135,20 @@
                     </tr>
                     <tr>
                         <th><label for="coachRole">Coach Role:</label></th>
-                        <th><input type="text" id="coachRole" name="coachRole"></th>
+                        <th style="vertical-align: auto; text-align: left;"><select name="coachRole" id="coachRole">
+                            <option value="MAJOR">MAJOR</option>
+                            <option value="GOALKEEPER">GOALKEEPER</option>
+                            <option value="FITNESS">FITNESS</option>
+                        </select></th>
                     </tr>
                     <tr>
                         <th><label for="qualificationCoach">Qualification Coach:</label></th>
-                        <th><input type="text" id="qualificationCoach" name="qualificationCoach"></th>
+                        <th style="vertical-align: auto; text-align: left;"><select name="qualificationCoach" id="qualificationCoach">
+                            <option value="UEFA_A">UEFA_A</option>
+                            <option value="UEFA_B">UEFA_B</option>
+                            <option value="UEFA_PRO">UEFA_PRO</option>
+                            <option value="YOUTH">YOUTH</option>
+                        </select></th>
                     </tr>
 
                 </table>

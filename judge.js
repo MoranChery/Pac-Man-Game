@@ -24,7 +24,7 @@ function getAddEventToGameDiv(){
     }
     $(document).keydown(function (event) {
         if (event.keyCode == 27) {
-            $('#JudgeDiv').hide();
+            $('#AddEventToGameDiv').hide();
         }
     });
 }
@@ -52,7 +52,7 @@ function getUpdateGameEventAfterEndDiv(){
     }
     $(document).keydown(function (event) {
         if (event.keyCode == 27) {
-            $('#JudgeDiv').hide();
+            $('#UpdateGameEventAfterEndDiv').hide();
         }
     });
 }
@@ -80,7 +80,7 @@ function getCreateReportForGameDiv(){
     }
     $(document).keydown(function (event) {
         if (event.keyCode == 27) {
-            $('#JudgeDiv').hide();
+            $('#CreateReportForGameDiv').hide();
         }
     });
 }
@@ -98,20 +98,20 @@ function submitAddEvent() {
     if (!emptyCell) {
         try {
             console.log("addEventToGame/"+email+"/"+gameId+"/"+eventTime+"/"+eventMinute+"/"+gameEventType+"/"+description+"/");
+            $.ajax({
+                url: server + "addEventToGame/"+email+"/"+gameId+"/"+eventTime+"/"+eventMinute+"/"+gameEventType+"/"+description+"/",
+                type: 'GET',
+                contentType: 'application/json',
+                success: function (data) {
+                    alert("event added to the game successfully!");
+                },
+                error: function (xhr) {
+                    alert(xhr.responseJSON.message);
+                }
+            });
         } catch (error) {
             alert(error);
         }
-        // $.ajax({
-        //     url: server + "addEventToGame/"+email+"/"+gameId+"/"+eventTime+"/"+eventMinute+"/"+gameEventType+"/"+description+"/",
-        //     type: 'GET',
-        //     contentType: 'application/json',
-        //     success: function (data) {
-        //         alert("Team Created!");
-        //     },
-        //     error: function (xhr) {
-        //         alert(xhr.responseJSON.message);
-        //     }
-        // });
     }else {
         alert("error: Some event details are not filled appropriately");
     }
@@ -133,20 +133,20 @@ function submitUpdateGameEventAfterEnd() {
     if (!emptyCell) {
         try {
             console.log("updateGameEventAfterEnd/"+judgeMail+"/"+gameIdU+"/"+eventId+"/"+eventTimeU+"/"+eventMinuteU+"/"+gameEventTypeU+"/"+descriptionU+"/");
+            $.ajax({
+                url: server + "updateGameEventAfterEnd/"+judgeMail+"/"+gameIdU+"/"+eventId+"/"+eventTimeU+"/"+eventMinuteU+"/"+gameEventTypeU+"/"+descriptionU+"/",
+                type: 'GET',
+                contentType: 'application/json',
+                success: function (data) {
+                    alert("Update Game Event After End has done successfully!");
+                },
+                error: function (xhr) {
+                    alert(xhr.responseJSON.message);
+                }
+            });
         } catch (error) {
             alert(error);
         }
-        // $.ajax({
-        //     url: server + "updateGameEventAfterEnd/"+judgeMail+"/"+gameIdU+"/"+eventId+"/"+eventTimeU+"/"+eventMinuteU+"/"+gameEventTypeU+"/"+descriptionU+"/",
-        //     type: 'GET',
-        //     contentType: 'application/json',
-        //     success: function (data) {
-        //         alert("Team Created!");
-        //     },
-        //     error: function (xhr) {
-        //         alert(xhr.responseJSON.message);
-        //     }
-        // });
     }else {
         alert("error: Some event details are not filled appropriately");
     }
@@ -164,33 +164,26 @@ function submitCreateReportForGame() {
     if (!emptyCell) {
         try {
             console.log("createReportForGame/"+i_file+"/"+judgeMailC+"/"+gameIdC+"/");
+            $.ajax({
+                url: server + "createReportForGame/"+i_file+"/"+judgeMailC+"/"+gameIdC+"/",
+                type: 'GET',
+                contentType: 'application/json',
+                success: function (data) {
+                    alert("Report for game "+gameIdC+" has added successfully!");
+                },
+                error: function (xhr) {
+                    alert(xhr.responseJSON.message);
+                }
+            });
         } catch (error) {
             alert(error);
         }
-        // $.ajax({
-        //     url: server + "createReportForGame/"+i_file+"/"+judgeMailC+"/"+gameIdC+"/",
-        //     type: 'GET',
-        //     contentType: 'application/json',
-        //     success: function (data) {
-        //         alert("Team Created!");
-        //     },
-        //     error: function (xhr) {
-        //         alert(xhr.responseJSON.message);
-        //     }
-        // });
     }else {
         alert("error: Some report details are not filled appropriately");
     }
     var frm = document.getElementById("CreateReportForGameForm");
     frm.reset();
 }
-
-$('#i_file').change( function(event) {
-    var tmppath = URL.createObjectURL(event.target.files[0]);
-    $("img").fadeIn("fast").attr('src',URL.createObjectURL(event.target.files[0]));
-
-    $("#disp_tmp_path").html("Temporary Path(Copy it and try pasting it in browser address bar) --> <strong>["+tmppath+"]</strong>");
-});
 
 function emailTest(input) {
     if (emailReg.test(input)) {
