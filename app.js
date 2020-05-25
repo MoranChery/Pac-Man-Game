@@ -1,4 +1,5 @@
 var server = 'http://localhost:9000/';
+//var server = 'http://132.72.65.26:9000/';
 var userEmail;
 
 function welcomLoadHtmlButton() {
@@ -116,8 +117,8 @@ function getAlerts(){
             }
         }
     });
-    // Every 30 minutes, an alert appears
-    setTimeout(getAlerts, 1800000);
+
+    setTimeout(getAlerts,1000);
 }
 
 function showRoleType(data){
