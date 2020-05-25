@@ -1,10 +1,9 @@
-body{
-    background-image: url(footballBeck.jpg);
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: 1500px 1300px ;
-    /*margin-top: 35%;*/
-    /*overflow: auto; !* Enable scroll if needed *!*/
+html{
+    background: url(footballBeck.jpg) no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
 }
 
 * { font: 17px Calibri; }
