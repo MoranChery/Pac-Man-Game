@@ -84,7 +84,7 @@ function getCreateReportForGameDiv(){
         }
     });
 }
-
+//todo show all games
 function submitAddEvent() {
     var emptyCell = false;
     var email = document.getElementById("email").value;
@@ -118,7 +118,7 @@ function submitAddEvent() {
     var frm = document.getElementById("AddEventToGameForm");
     frm.reset();
 }
-
+//todo show all games and events
 function submitUpdateGameEventAfterEnd() {
     var emptyCell = false;
     var judgeMail = document.getElementById("judgeMail").value;

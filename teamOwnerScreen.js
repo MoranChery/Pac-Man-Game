@@ -190,21 +190,20 @@ function submitNewCoach() {
 function submitNewTeamManager() {
     var emptyCell = false;
     var teamName = document.getElementById("teamNameT").value;
-    var emailT = document.getElementById("emailT").value;
     var teamManagerEmail = document.getElementById("teamManagerEmail").value;
     var teamManagerId = document.getElementById("teamManagerId").value;
     var teamManagerFName = document.getElementById("teamManagerFName").value;
     var teamManagerLName = document.getElementById("teamManagerLName").value;
     var permissionsString = getPermissions();
-    var ownedById = document.getElementById("OwnedById").value;
-    if(teamName==""||emailT==""||teamManagerEmail==""||teamManagerId==""||teamManagerFName==""||teamManagerLName==""||ownedById==""||!emailTest(emailT)||!emailTest(teamManagerEmail)){
+    var ownedByEmail = document.getElementById("ownedByEmail").value;
+    if(teamName==""||teamManagerEmail==""||teamManagerId==""||teamManagerFName==""||teamManagerLName==""||ownedByEmail==""||!emailTest(teamManagerEmail)||!emailTest(ownedByEmail)){
         emptyCell=true;
     }
     if (!emptyCell) {
         try {
-            console.log("addTeamManager/" + teamName + "/" +emailT  + "/" + teamManagerEmail + "/" + teamManagerId+ "/" + teamManagerFName + "/" + teamManagerLName + "/" + permissionsString+ "/" + ownedById + "/");
+            console.log("addTeamManager/" + teamName + "/" +teamManagerEmail  + "/" + teamManagerId + "/" + teamManagerFName + "/" + teamManagerLName + "/" + permissionsString+ "/" + ownedByEmail + "/");
             $.ajax({
-                url: server + "addTeamManager/" + teamName + "/" +emailT  + "/" + teamManagerEmail + "/" + teamManagerId+ "/" + teamManagerFName + "/" + teamManagerLName + "/" + permissionsString+ "/" + ownedById + "/",
+                url: server + "addTeamManager/" + teamName + "/" +teamManagerEmail  + "/" + teamManagerId + "/" + teamManagerFName + "/" + teamManagerLName + "/" + permissionsString+ "/" + ownedByEmail + "/",
                 type: 'GET',
                 contentType: 'application/json',
                 success: function (data) {
@@ -223,7 +222,7 @@ function submitNewTeamManager() {
     var frm = document.getElementById("AddTeamManagerForm");
     frm.reset();
 }
-
+//todo: court name court city
 function submitNewTeam() {
     var emptyCell = false;
     var teamName = document.getElementById("teamName").value;
@@ -281,7 +280,7 @@ function getPermissions() {
     }
     $boxes = $('input[name=ADD_COACH]');
     if ($boxes[0].checked) {
-        permissions = +"ADD_COACH,";
+        permissions +="ADD_COACH,";
     }
     $boxes = $('input[name=ADD_COURT]');
     if ($boxes[0].checked) {
@@ -310,10 +309,6 @@ function getPermissions() {
     $boxes = $('input[name=REMOVE_COURT]');
     if ($boxes[0].checked) {
         permissions += "REMOVE_COURT,";
-    }
-    $boxes = $('input[name=OWNER]');
-    if ($boxes[0].checked) {
-        permissions += "OWNER,";
     }
     $boxes = $('input[name=CREATE_NEW_TEAM]');
     if ($boxes[0].checked) {
