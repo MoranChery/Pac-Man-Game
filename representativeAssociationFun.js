@@ -237,8 +237,10 @@ function setGames(data) {
         hostTeam.innerHTML = data[k].hostTeam;
         guestTeam.innerHTML = data[k].guestTeam;
         var dateSplit = data[k].gameDate.split('-').join(', ').split('T');
+        var hower = dateSplit[1].split(":");
+        hower = hower[0]+":"+hower[1];
         dateSplit =dateSplit[0].split(',');
-        gameDate.innerHTML = dateSplit[2]+"-"+dateSplit[1]+"-"+dateSplit[0];
+        gameDate.innerHTML = dateSplit[2]+"-"+dateSplit[1]+"-"+dateSplit[0]+" "+hower;
         court.innerHTML = data[k].court;
     }
     for (var i=1; i<table.rows.length ; i++){
@@ -285,13 +287,13 @@ function changeGameDate() {
 
     // When the user clicks the button, open the modal
     btn.onclick = function() {
-        var tomorrow = new Date(new Date().getTime() + 2*24 * 60 * 60 * 1000);
+        var tomorrow = new Date(new Date().getTime() + 24 * 60 * 60 * 1000);
         var tomday = tomorrow.getDate();
         var tommonth = tomorrow.getMonth() + 1;
         var tomyear = tomorrow.getFullYear();
         if(tomday<10){tomday='0'+tomday} if(tommonth<10){tommonth='0'+tommonth} tomorrow = tommonth+'/'+tomday+'/'+tomyear;
-        document.getElementById("dateField").valueAsDate = new Date(new Date().getTime() + 24 * 60 * 60 * 1000);
-        document.getElementById("dateField").min =tomyear +"-"+tommonth+"-"+tomday;
+        document.getElementById("dateField").min =tomyear +"-"+tommonth+"-"+tomday+"T20:00";
+
         modal.style.display = "block";
     }
 
@@ -318,7 +320,15 @@ function changeGameDate() {
 function changeDate(){
     var date = document.getElementById("dateField").value;
     date =date.split('-');
-    date=date[2]+"-"+date[1]+"-"+date[0];
+    try {
+        var hower = date[2].split('T');
+    }
+    catch (e) {
+        alert("put valid input date");
+        return;
+    }
+
+    date=hower[0]+"-"+date[1]+"-"+date[0]+" "+hower[1];
     var gameId= document.getElementById("gameID").innerText;
     var user = localStorage.getItem("user");
 
