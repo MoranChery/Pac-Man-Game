@@ -116,21 +116,22 @@ function getAddTeamManagerDiv() {
 function submitNewPlayer() {
     var emptyCell = false;
     var teamName = document.getElementById("teamNameP").value;
-    var emailP = document.getElementById("emailP").value;
+    // var emailP = document.getElementById("emailP").value;
+    var user = localStorage.getItem("user");
     var playerEmail = document.getElementById("playerEmail").value;
     var playerId = document.getElementById("playerId").value;
     var playerFName = document.getElementById("playerFName").value;
     var playerLName = document.getElementById("playerLName").value;
     var playerBD = document.getElementById("playerBD").value;
     var playerRole = document.getElementById("playerRole").value;
-    if (teamName == "" || emailP == "" || playerEmail == "" || playerId == "" || playerFName == "" || playerLName == "" || playerBD == "" || playerRole == "" || !emailTest(emailP) || !emailTest(playerEmail)) {
+    if (teamName == "" || user == "" || playerEmail == "" || playerId == "" || playerFName == "" || playerLName == "" || playerBD == "" || playerRole == "" || !emailTest(emailP) || !emailTest(playerEmail)) {
         emptyCell = true;
     }
     if (!emptyCell) {
         try {
-            console.log("addPlayer/" + teamName + "/" + emailP + "/" + playerEmail + "/" + playerId + "/" + playerFName + "/" + playerLName + "/" + playerBD + "/" + playerRole + "/");
+            console.log("addPlayer/" + teamName + "/" + user + "/" + playerEmail + "/" + playerId + "/" + playerFName + "/" + playerLName + "/" + playerBD + "/" + playerRole + "/");
             $.ajax({
-                url: server + "addPlayer/" + teamName + "/" + emailP + "/" + playerEmail + "/" + playerId + "/" + playerFName + "/" + playerLName + "/" + playerBD + "/" + playerRole + "/",
+                url: server + "addPlayer/" + teamName + "/" + user + "/" + playerEmail + "/" + playerId + "/" + playerFName + "/" + playerLName + "/" + playerBD + "/" + playerRole + "/",
                 type: 'GET',
                 contentType: 'application/json',
                 success: function (data) {
@@ -153,21 +154,21 @@ function submitNewPlayer() {
 function submitNewCoach() {
     var emptyCell = false;
     var teamName = document.getElementById("teamNameC").value;
-    var emailC = document.getElementById("emailC").value;
+    var user = localStorage.getItem("user");
     var coachEmail = document.getElementById("coachEmail").value;
     var coachId = document.getElementById("coachId").value;
     var coachFName = document.getElementById("coachFName").value;
     var coachLName = document.getElementById("coachLName").value;
     var coachRole = document.getElementById("coachRole").value;
     var qualificationCoach = document.getElementById("qualificationCoach").value;
-    if(teamName==""||emailC==""||coachEmail==""||coachId==""||coachFName==""||coachLName==""||coachRole==""||qualificationCoach==""||!emailTest(emailC)||!emailTest(coachEmail)){
+    if(teamName==""||user==""||coachEmail==""||coachId==""||coachFName==""||coachLName==""||coachRole==""||qualificationCoach==""||!emailTest(user)||!emailTest(coachEmail)){
         emptyCell=true;
     }
     if (!emptyCell) {
         try {
-            console.log("addCoach/" + teamName + "/" + emailC + "/" + coachEmail + "/" + coachId + "/" + coachFName + "/" + coachLName + "/" + coachRole + "/" + qualificationCoach + "/");
+            console.log("addCoach/" + teamName + "/" + user + "/" + coachEmail + "/" + coachId + "/" + coachFName + "/" + coachLName + "/" + coachRole + "/" + qualificationCoach + "/");
             $.ajax({
-                url: server + "addCoach/" + teamName + "/" + emailC + "/" + coachEmail+ "/" + coachId + "/" + coachFName + "/" + coachLName + "/" + coachRole+ "/" + qualificationCoach + "/",
+                url: server + "addCoach/" + teamName + "/" + user + "/" + coachEmail+ "/" + coachId + "/" + coachFName + "/" + coachLName + "/" + coachRole+ "/" + qualificationCoach + "/",
                 type: 'GET',
                 contentType: 'application/json',
                 success: function (data) {
@@ -190,21 +191,20 @@ function submitNewCoach() {
 function submitNewTeamManager() {
     var emptyCell = false;
     var teamName = document.getElementById("teamNameT").value;
-    var emailT = document.getElementById("emailT").value;
     var teamManagerEmail = document.getElementById("teamManagerEmail").value;
     var teamManagerId = document.getElementById("teamManagerId").value;
     var teamManagerFName = document.getElementById("teamManagerFName").value;
     var teamManagerLName = document.getElementById("teamManagerLName").value;
     var permissionsString = getPermissions();
-    var ownedById = document.getElementById("OwnedById").value;
-    if(teamName==""||emailT==""||teamManagerEmail==""||teamManagerId==""||teamManagerFName==""||teamManagerLName==""||ownedById==""||!emailTest(emailT)||!emailTest(teamManagerEmail)){
+    var user = localStorage.getItem("user");
+    if(teamName==""||teamManagerEmail==""||teamManagerId==""||teamManagerFName==""||teamManagerLName==""||user==""||!emailTest(teamManagerEmail)||!emailTest(user)){
         emptyCell=true;
     }
     if (!emptyCell) {
         try {
-            console.log("addTeamManager/" + teamName + "/" +emailT  + "/" + teamManagerEmail + "/" + teamManagerId+ "/" + teamManagerFName + "/" + teamManagerLName + "/" + permissionsString+ "/" + ownedById + "/");
+            console.log("addTeamManager/" + teamName + "/" +teamManagerEmail  + "/" + teamManagerId + "/" + teamManagerFName + "/" + teamManagerLName + "/" + permissionsString+ "/" + user + "/");
             $.ajax({
-                url: server + "addTeamManager/" + teamName + "/" +emailT  + "/" + teamManagerEmail + "/" + teamManagerId+ "/" + teamManagerFName + "/" + teamManagerLName + "/" + permissionsString+ "/" + ownedById + "/",
+                url: server + "addTeamManager/" + teamName + "/" +teamManagerEmail  + "/" + teamManagerId + "/" + teamManagerFName + "/" + teamManagerLName + "/" + permissionsString+ "/" + user + "/",
                 type: 'GET',
                 contentType: 'application/json',
                 success: function (data) {
@@ -227,16 +227,17 @@ function submitNewTeamManager() {
 function submitNewTeam() {
     var emptyCell = false;
     var teamName = document.getElementById("teamName").value;
-    var ownerEmail= document.getElementById("email").value;
+    var user = localStorage.getItem("user");
     var budget = document.getElementById("budget").value;
     var courtName = document.getElementById("courtName").value;
-    if (teamName == "" ||ownerEmail==""  || budget == "" || courtName == "" || !emailTest(ownerEmail))
+    var courtCity = document.getElementById("courtCity").value;
+    if (teamName == "" ||user==""  || budget == "" || courtName == "" ||courtCity==""|| !emailTest(user))
         emptyCell = true;
     if (!emptyCell) {
         try {
-            console.log("createNewTeam/" + teamName + "/" + ownerEmail + "/" + budget + "/" + courtName + "/");
+            console.log("createNewTeam/" + teamName + "/" + user + "/" + budget + "/" + courtName + "/"+courtCity+"/");
             $.ajax({
-                url: server + "createNewTeam/" + teamName + "/" + ownerEmail + "/" + budget + "/" + courtName + "/",
+                url: server + "createNewTeam/" + teamName + "/" + user + "/" + budget + "/" + courtName + "/"+courtCity+"/",
                 type: 'GET',
                 contentType: 'application/json',
                 success: function (data) {
@@ -249,17 +250,6 @@ function submitNewTeam() {
         } catch (error) {
             alert(error);
         }
-        // $.ajax({
-        //     url: server + "createNewTeam/" + teamName + "/" + owner + "/" + budget + "/" +  courtName + '/',
-        //     type: 'GET',
-        //     contentType: 'application/json',
-        //     success: function (data) {
-        //         alert("Team Created!");
-        //     },
-        //     error: function (xhr) {
-        //         alert(xhr.responseJSON.message);
-        //     }
-        // });
     }else {
         alert("error: Some team details are not filled appropriately");
     }
@@ -281,7 +271,7 @@ function getPermissions() {
     }
     $boxes = $('input[name=ADD_COACH]');
     if ($boxes[0].checked) {
-        permissions = +"ADD_COACH,";
+        permissions +="ADD_COACH,";
     }
     $boxes = $('input[name=ADD_COURT]');
     if ($boxes[0].checked) {
@@ -310,10 +300,6 @@ function getPermissions() {
     $boxes = $('input[name=REMOVE_COURT]');
     if ($boxes[0].checked) {
         permissions += "REMOVE_COURT,";
-    }
-    $boxes = $('input[name=OWNER]');
-    if ($boxes[0].checked) {
-        permissions += "OWNER,";
     }
     $boxes = $('input[name=CREATE_NEW_TEAM]');
     if ($boxes[0].checked) {

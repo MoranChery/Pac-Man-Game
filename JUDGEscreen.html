@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <script type="text/javascript" src="judge.js"></script>
+    <script type="text/javascript" src="app.js"></script>
     <link rel="stylesheet" type="text/css" href="judge.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -41,6 +42,7 @@
                         onclick="getCreateReportForGameDiv()"
                         class="bt">Create Report For Game
                 </button>
+                <button name="WelcomeButton" id="btnGameBoard" onclick="getGameDetailsDiv()" >Board Games </button>
             </ul>
         </div>
     </div>
@@ -182,6 +184,50 @@
     </div>
 </div>
 
+<div id="gamesDetails" class="modal">
+    <div class="modal-content">
+        <div class="modal-header">
+            <span class="closeChangeGame">&times;</span>
+            <h1>Choose Game:</h1>
+            <table id = "games">
+                <tr>
+                    <td>Game ID:</td>
+                    <td>Team 1:</td>
+                    <td>Team 2:</td>
+                    <td>Date:</td>
+                    <td>Location:</td>
+                </tr>
+            </table>
+            <br>
+        </div>
+    </div>
+</div>
+
+<div id="eventsDetails" class="modal">
+    <div class="modal-content">
+        <div class="modal-header">
+            <span class="closeChangeGame">&times;</span>
+            <h1>Choose Game:</h1>
+            <table id = "eventsByGame">
+                <tr>
+                    <td>Game Id</td>
+                    <td> Event Id</td>
+                    <td> Game Date</td>
+                    <td>Event Time</td>
+                    <td>Event Minute</td>
+                    <td>Game Event Type</td>
+                    <td>description</td>
+                </tr>
+            </table>
+            <br>
+        </div>
+    </div>
+</div>
+
+<script>
+    getAlerts();
+</script>
+
 <script>
     $('#i_file').change( function(event) {
         var tmppath = URL.createObjectURL(event.target.files[0]);
@@ -189,9 +235,6 @@
 
         $("#disp_tmp_path").html("Temporary Path(Copy it and try pasting it in browser address bar) --> <strong>["+tmppath+"]</strong>");
     });
-</script>
-<script>
-    getAlerts();
 </script>
 </body>
 </html>
