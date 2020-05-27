@@ -2,8 +2,22 @@ var server = 'http://localhost:9000/';
 //var server = 'http://132.72.65.26:9000/';
 var userEmail;
 
+
 function welcomLoadHtmlButton() {
     document.getElementById("myBtn").click();
+}
+
+function connectionToExternalSystems() {
+    $.ajax({
+        url: server+'isConnectionToExternalSystems',
+        type: 'GET',
+        contentType: 'application/json',
+        success: function(data){
+        },
+        error: function(xhr){
+            alert(xhr.responseJSON.message);
+        }
+    });
 }
 
 function getLogInDiv(){
@@ -49,6 +63,7 @@ function logIn() {
         contentType: 'application/json',
         success: function(data){
             localStorage.setItem("user" , userEmail );
+            connectionToExternalSystems();
             getRoles();
         },
         error: function(xhr){
