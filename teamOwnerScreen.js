@@ -124,7 +124,7 @@ function submitNewPlayer() {
     var playerLName = document.getElementById("playerLName").value;
     var playerBD = document.getElementById("playerBD").value;
     var playerRole = document.getElementById("playerRole").value;
-    if (teamName == "" || user == "" || playerEmail == "" || playerId == "" || playerFName == "" || playerLName == "" || playerBD == "" || playerRole == "" || !emailTest(emailP) || !emailTest(playerEmail)) {
+    if (teamName == "" || user == "" || playerEmail == "" || playerId == "" || playerFName == "" || playerLName == "" || playerBD == "" || playerRole == ""  || !emailTest(playerEmail)) {
         emptyCell = true;
     }
     if (!emptyCell) {
@@ -135,7 +135,7 @@ function submitNewPlayer() {
                 type: 'GET',
                 contentType: 'application/json',
                 success: function (data) {
-                    alert("Players added to the Team ");
+                    alert("Players added to the Team "+teamName);
                 },
                 error: function (xhr) {
                     alert(xhr.responseJSON.message);
@@ -172,7 +172,7 @@ function submitNewCoach() {
                 type: 'GET',
                 contentType: 'application/json',
                 success: function (data) {
-                    alert("Coaches added successfully to the team!");
+                    alert("Coach added successfully to the team!");
                 },
                 error: function (xhr) {
                     alert(xhr.responseJSON.message);
@@ -197,7 +197,7 @@ function submitNewTeamManager() {
     var teamManagerLName = document.getElementById("teamManagerLName").value;
     var permissionsString = getPermissions();
     var user = localStorage.getItem("user");
-    if(teamName==""||teamManagerEmail==""||teamManagerId==""||teamManagerFName==""||teamManagerLName==""||user==""||!emailTest(teamManagerEmail)||!emailTest(user)){
+    if(teamName==""||teamManagerEmail==""||teamManagerId==""||teamManagerFName==""||teamManagerLName==""||!emailTest(teamManagerEmail)){
         emptyCell=true;
     }
     if (!emptyCell) {

@@ -42,7 +42,7 @@
                         onclick="getCreateReportForGameDiv()"
                         class="bt">Create Report For Game
                 </button>
-                <button name="WelcomeButton" id="btnGameBoard" onclick="getGameDetailsDiv()" >Board Games </button>
+                <button name="WelcomeButton" id="btnGameBoard" onclick="getGameDetailsDiv()" class="bt">Board Games </button>
             </ul>
         </div>
     </div>
@@ -56,10 +56,6 @@
             <p style="font-size:30px">Enter new game event details:</p>
             <form id="AddEventToGameForm">
                 <table style="width:550px ; margin-left:auto;margin-right:auto">
-                    <tr>
-                        <th><label for="email">Your Email Address:</label></th>
-                        <th><input type="text" id="email" name="email"></th>
-                    </tr>
                     <tr>
                         <th><label for="gameId">Game ID:</label></th>
                         <th><input type="text" id="gameId" name="gameId"></th>
@@ -105,10 +101,6 @@
             <p style="font-size:30px">Enter update details for the event:</p>
             <form id="UpdateGameEventAfterEndForm">
                 <table style="width:550px ; margin-left:auto;margin-right:auto">
-                    <tr>
-                        <th><label for="judgeMail">Your Email Address:</label></th>
-                        <th><input type="text" id="judgeMail" name="judgeMail"></th>
-                    </tr>
                     <tr>
                         <th><label for="gameIdU">Game ID:</label></th>
                         <th><input type="text" id="gameIdU" name="gameIdU"></th>
@@ -166,10 +158,6 @@
                         <th><input type="file" id="i_file" name="path"></th>
                     </tr>
                     <tr>
-                        <th><label for="judgeMailC">Judge Email:</label></th>
-                        <th><input type="text" id="judgeMailC" name="judgeMailC"></th>
-                    </tr>
-                    <tr>
                         <th><label for="gameIdC">Game ID:</label></th>
                         <th><input type="text" id="gameIdC" name="gameIdC"></th>
                     </tr>
@@ -216,7 +204,7 @@
                     <td>Event Time</td>
                     <td>Event Minute</td>
                     <td>Game Event Type</td>
-                    <td>description</td>
+                    <td>Description</td>
                 </tr>
             </table>
             <br>
