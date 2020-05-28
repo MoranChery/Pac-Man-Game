@@ -328,7 +328,7 @@ function changeDate(){
         return;
     }
 
-    date=hower[0]+"-"+date[1]+"-"+date[0]+" "+hower[1];
+    date=date[0]+"-"+date[1]+"-"+ hower[0]+" "+hower[1];
     var gameId= document.getElementById("gameID").innerText;
     var user = localStorage.getItem("user");
 
@@ -337,7 +337,7 @@ function changeDate(){
         type: 'GET',
         contentType: 'application/json',
         success: function(data){
-            alert("The change was successful: The date of the game"+gameId +" was changed to: "+data);
+            alert("The change was successful");
             document.getElementById("gamesDetails").style.display = "none";
             document.getElementById("chosenGame").style.display = "none";
             document.getElementById("changeGameDateDiv").style.display = "none";
