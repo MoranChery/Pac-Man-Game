@@ -1,5 +1,5 @@
-var server = 'http://localhost:9000/';
-//var server = 'http://132.72.65.26:9000/';
+//var server = 'http://localhost:9000/';
+var server = 'http://132.72.65.26:9000/';
 var userEmail;
 
 
@@ -57,19 +57,27 @@ function getLogInDiv(){
 function logIn() {
     userEmail = document.getElementById("user").value;
     var pass = document.getElementById("pass").value;
-    $.ajax({
-        url: server+'login/'+userEmail+'/'+pass+'/',
-        type: 'GET',
-        contentType: 'application/json',
-        success: function(data){
-            localStorage.setItem("user" , userEmail );
-            connectionToExternalSystems();
-            getRoles();
-        },
-        error: function(xhr){
-             alert(xhr.responseJSON.message);
-        }
-    });
+    if(userEmail==null || userEmail==""){
+        alert("put valid  User Name");
+    }
+    else if (pass==null || pass==""){
+        alert("put valid  Password ");
+    }
+    else {
+        $.ajax({
+            url: server + 'login/' + userEmail + '/' + pass + '/',
+            type: 'GET',
+            contentType: 'application/json',
+            success: function (data) {
+                localStorage.setItem("user", userEmail);
+                connectionToExternalSystems();
+                getRoles();
+            },
+            error: function (xhr) {
+                alert(xhr.responseJSON.message);
+            }
+        });
+    }
 }
 
 function deleteTableRow() {

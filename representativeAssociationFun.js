@@ -337,7 +337,7 @@ function changeDate(){
         type: 'GET',
         contentType: 'application/json',
         success: function(data){
-            alert("The change was successful");
+            alert("The change was successful: The date of the game"+gameId +" was changed to: "+data);
             document.getElementById("gamesDetails").style.display = "none";
             document.getElementById("chosenGame").style.display = "none";
             document.getElementById("changeGameDateDiv").style.display = "none";
@@ -413,7 +413,7 @@ function changeLocation() {
         type: 'GET',
         contentType: 'application/json',
         success: function(data){
-            alert("The change was successful");
+            alert("The change was successful: The location of the game"+gameId +" was changed to: "+newLocation);
             document.getElementById("gamesDetails").style.display = "none";
             document.getElementById("chosenGame").style.display = "none";
             document.getElementById("changeGameLocationDiv").style.display = "none";
