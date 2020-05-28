@@ -207,8 +207,8 @@ button[name="btnCreateNewTeam"]:hover {
 
 #submitNewTeamManager{
     position: absolute;
-    top: 700px;
-    left: 520px;
+    top: 105%;
+    left: 570px;
 }
 
 #TeamOwnerDiv{

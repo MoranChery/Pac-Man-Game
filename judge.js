@@ -93,7 +93,7 @@ function submitAddEvent() {
     var eventMinute = document.getElementById("eventMinute").value;
     var gameEventType = document.getElementById("gameEventType").value;
     var description = document.getElementById("description").value;
-    if (email == "" ||gameId==""  || eventTime == "" || eventMinute == "" ||gameEventType==""||description==""|| !emailTest(email))
+    if (email == "" ||gameId==""  || eventTime == "" || eventMinute == "" ||gameEventType==""||description=="")
         emptyCell = true;
     if (!emptyCell) {
         try {
@@ -128,7 +128,7 @@ function submitUpdateGameEventAfterEnd() {
     var eventMinuteU = document.getElementById("eventMinuteU").value;
     var gameEventTypeU = document.getElementById("gameEventTypeU").value;
     var descriptionU = document.getElementById("descriptionU").value;
-    if (judgeMail == "" ||gameIdU==""  || eventId == "" || eventTimeU == "" ||eventMinuteU==""||gameEventTypeU==""||descriptionU==""||!emailTest(judgeMail))
+    if (judgeMail == "" ||gameIdU==""  || eventId == "" || eventTimeU == "" ||eventMinuteU==""||gameEventTypeU==""||descriptionU=="")
         emptyCell = true;
     if (!emptyCell) {
         try {
