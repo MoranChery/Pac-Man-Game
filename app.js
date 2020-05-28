@@ -194,11 +194,26 @@ function getRoles(){
 }
 
 function getScreen(){
+    var checkBox= document.getElementById("boolIsMail");
+    sendcheckBoxChoosenToServer(checkBox);
+
     var select = document.getElementById("roles");
     var screen = select.value+"screen.html";
     window.location=screen;
 }
 
+function sendcheckBoxChoosenToServer(checkBox) {
+    checkBox.checked;
+    $.ajax({
+        url: server+'setSubscriberWantAlertInMail/'+userEmail+'/'+checkBox.checked,
+        type: 'GET',
+        contentType: 'application/json',
+        success: function(data){
+        },
+        error: function(xhr){
+        }
+    });
+}
 function deleteSelecteList(){
     var select = document.getElementById("roles");
     var length = select.options.length;
