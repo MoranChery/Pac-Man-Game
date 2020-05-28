@@ -155,7 +155,7 @@
                 <table style="width:550px ; margin-left:auto;margin-right:auto">
                     <tr>
                         <th><label for="i_file">Path to save the report:</label></th>
-                        <th><input type="file" id="i_file" name="path"></th>
+                        <th><input type="text" id="i_file"  name="i_file"  ></th>
                     </tr>
                     <tr>
                         <th><label for="gameIdC">Game ID:</label></th>
@@ -175,8 +175,9 @@
 <div id="gamesDetails" class="modal">
     <div class="modal-content">
         <div class="modal-header">
-            <span class="closeChangeGame">&times;</span>
-            <h1>Choose Game:</h1>
+            <span onclick="document.getElementById('gamesDetails').style.display='none'"
+                  class="bt">&times;</span>
+            <p style="font-size:35px;">Click on a game to watch its events:</p>
             <table id = "games">
                 <tr>
                     <td>Game ID:</td>
@@ -194,7 +195,8 @@
 <div id="eventsDetails" class="modal">
     <div class="modal-content">
         <div class="modal-header">
-            <span class="closeChangeGame">&times;</span>
+            <span onclick="document.getElementById('eventsDetails').style.display='none'"
+                  class="bt">&times;</span>
             <h1>Choose Game:</h1>
             <table id = "eventsByGame">
                 <tr>
@@ -217,12 +219,12 @@
 </script>
 
 <script>
-    $('#i_file').change( function(event) {
-        var tmppath = URL.createObjectURL(event.target.files[0]);
-        $("img").fadeIn("fast").attr('src',URL.createObjectURL(event.target.files[0]));
-
-        $("#disp_tmp_path").html("Temporary Path(Copy it and try pasting it in browser address bar) --> <strong>["+tmppath+"]</strong>");
-    });
+    // $('#i_file').change( function(event) {
+    //     var tmppath = URL.createObjectURL(event.target.files[0]);
+    //     $("img").fadeIn("fast").attr('src',URL.createObjectURL(event.target.files[0]));
+    //
+    //     $("#disp_tmp_path").html("Temporary Path(Copy it and try pasting it in browser address bar) --> <strong>["+tmppath+"]</strong>");
+    // });
 </script>
 </body>
 </html>

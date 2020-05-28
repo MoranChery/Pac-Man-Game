@@ -1,7 +1,7 @@
 var server = 'http://localhost:9000/';
 var emailReg = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
 
-function getAddEventToGameDiv(){
+function getAddEventToGameDiv() {
     // Get the modal
     var modal = document.getElementById("AddEventToGameDiv");
     // Get the button that opens the modal
@@ -29,7 +29,7 @@ function getAddEventToGameDiv(){
     });
 }
 
-function getUpdateGameEventAfterEndDiv(){
+function getUpdateGameEventAfterEndDiv() {
     // Get the modal
     var modal = document.getElementById("UpdateGameEventAfterEndDiv");
     // Get the button that opens the modal
@@ -57,7 +57,7 @@ function getUpdateGameEventAfterEndDiv(){
     });
 }
 
-function getCreateReportForGameDiv(){
+function getCreateReportForGameDiv() {
     // Get the modal
     var modal = document.getElementById("CreateReportForGameDiv");
     // Get the button that opens the modal
@@ -87,19 +87,19 @@ function getCreateReportForGameDiv(){
 
 function submitAddEvent() {
     var emptyCell = false;
-    var email =  localStorage.getItem("user");
-    var gameId= document.getElementById("gameId").value;
-    var eventTime = document.getElementById("eventTime").value+"";
+    var email = localStorage.getItem("user");
+    var gameId = document.getElementById("gameId").value;
+    var eventTime = document.getElementById("eventTime").value + "";
     var eventMinute = document.getElementById("eventMinute").value;
     var gameEventType = document.getElementById("gameEventType").value;
     var description = document.getElementById("description").value;
-    if (email == "" ||gameId==""  || eventTime == "" || eventMinute == "" ||gameEventType==""||description=="")
+    if (email == "" || gameId == "" || eventTime == "" || eventMinute == "" || gameEventType == "" || description == "")
         emptyCell = true;
     if (!emptyCell) {
         try {
-            console.log("addEventToGame/"+email+"/"+gameId+"/"+eventTime+"/"+eventMinute+"/"+gameEventType+"/"+description+"/");
+            console.log("addEventToGame/" + email + "/" + gameId + "/" + eventTime + "/" + eventMinute + "/" + gameEventType + "/" + description + "/");
             $.ajax({
-                url: server + "addEventToGame/"+email+"/"+gameId+"/"+eventTime+"/"+eventMinute+"/"+gameEventType+"/"+description+"/",
+                url: server + "addEventToGame/" + email + "/" + gameId + "/" + eventTime + "/" + eventMinute + "/" + gameEventType + "/" + description + "/",
                 type: 'GET',
                 contentType: 'application/json',
                 success: function (data) {
@@ -112,7 +112,7 @@ function submitAddEvent() {
         } catch (error) {
             alert(error);
         }
-    }else {
+    } else {
         alert("error: Some event details are not filled appropriately");
     }
     var frm = document.getElementById("AddEventToGameForm");
@@ -121,20 +121,20 @@ function submitAddEvent() {
 
 function submitUpdateGameEventAfterEnd() {
     var emptyCell = false;
-    var judgeMail =  localStorage.getItem("user");
-    var gameIdU= document.getElementById("gameIdU").value;
+    var judgeMail = localStorage.getItem("user");
+    var gameIdU = document.getElementById("gameIdU").value;
     var eventId = document.getElementById("eventId").value;
     var eventTimeU = document.getElementById("eventTimeU").value;
     var eventMinuteU = document.getElementById("eventMinuteU").value;
     var gameEventTypeU = document.getElementById("gameEventTypeU").value;
     var descriptionU = document.getElementById("descriptionU").value;
-    if (judgeMail == "" ||gameIdU==""  || eventId == "" || eventTimeU == "" ||eventMinuteU==""||gameEventTypeU==""||descriptionU=="")
+    if (judgeMail == "" || gameIdU == "" || eventId == "" || eventTimeU == "" || eventMinuteU == "" || gameEventTypeU == "" || descriptionU == "")
         emptyCell = true;
     if (!emptyCell) {
         try {
-            console.log("updateGameEventAfterEnd/"+judgeMail+"/"+gameIdU+"/"+eventId+"/"+eventTimeU+"/"+eventMinuteU+"/"+gameEventTypeU+"/"+descriptionU+"/");
+            console.log("updateGameEventAfterEnd/" + judgeMail + "/" + gameIdU + "/" + eventId + "/" + eventTimeU + "/" + eventMinuteU + "/" + gameEventTypeU + "/" + descriptionU + "/");
             $.ajax({
-                url: server + "updateGameEventAfterEnd/"+judgeMail+"/"+gameIdU+"/"+eventId+"/"+eventTimeU+"/"+eventMinuteU+"/"+gameEventTypeU+"/"+descriptionU+"/",
+                url: server + "updateGameEventAfterEnd/" + judgeMail + "/" + gameIdU + "/" + eventId + "/" + eventTimeU + "/" + eventMinuteU + "/" + gameEventTypeU + "/" + descriptionU + "/",
                 type: 'GET',
                 contentType: 'application/json',
                 success: function (data) {
@@ -147,7 +147,7 @@ function submitUpdateGameEventAfterEnd() {
         } catch (error) {
             alert(error);
         }
-    }else {
+    } else {
         alert("error: Some event details are not filled appropriately");
     }
     var frm = document.getElementById("UpdateGameEventAfterEndForm");
@@ -157,19 +157,19 @@ function submitUpdateGameEventAfterEnd() {
 function submitCreateReportForGame() {
     var emptyCell = false;
     var i_file = document.getElementById("i_file").value;
-    var judgeMailC =localStorage.getItem("user");
+    var judgeMailC = localStorage.getItem("user");
     var gameIdC = document.getElementById("gameIdC").value;
-    if ( i_file == "" ||judgeMailC==""||gameIdC=="")
+    if (i_file == "" || judgeMailC == "" || gameIdC == "")
         emptyCell = true;
     if (!emptyCell) {
         try {
-            console.log("createReportForGame/"+i_file+" "+"/"+judgeMailC+"/"+gameIdC+"/");
+            console.log("createReportForGame/" + i_file + " " + "/" + judgeMailC + "/" + gameIdC + "/");
             $.ajax({
-                url: server + "createReportForGame/"+i_file+" "+"/"+judgeMailC+"/"+gameIdC+"/",
+                url: server + "createReportForGame/" + i_file + " " + "/" + judgeMailC + "/" + gameIdC + "/",
                 type: 'GET',
                 contentType: 'application/json',
                 success: function (data) {
-                    alert("Report for game "+gameIdC+" has added successfully!");
+                    alert("Report for game " + gameIdC + " has added successfully!");
                 },
                 error: function (xhr) {
                     alert(xhr.responseJSON.message);
@@ -178,19 +178,11 @@ function submitCreateReportForGame() {
         } catch (error) {
             alert(error);
         }
-    }else {
+    } else {
         alert("error: Some report details are not filled appropriately");
     }
     var frm = document.getElementById("CreateReportForGameForm");
     frm.reset();
-}
-
-function emailTest(input) {
-    if (emailReg.test(input)) {
-        return true;
-    } else {
-        return false;
-    }
 }
 
 function getGameDetailsDiv() {
@@ -204,27 +196,27 @@ function getGameDetailsDiv() {
     var span = document.getElementsByClassName("closeChangeGame")[0];
 
     // When the user clicks the button, open the modal
-    btn.onclick = function() {
+    btn.onclick = function () {
         deleteGames();
         getGamesFromServer();
         modal.style.display = "block";
     }
 
     // When the user clicks on <span> (x), close the modal
-    span.onclick = function() {
+    span.onclick = function () {
         modal.style.display = "none";
 
 
     }
 
     // When the user clicks anywhere outside of the modal, close it
-    window.onclick = function(event) {
+    window.onclick = function (event) {
         if (event.target == modal) {
             modal.style.display = "none";
 
         }
     }
-    $(document).keydown(function(event) {
+    $(document).keydown(function (event) {
         if (event.keyCode == 27) {
             $('#gamesDetails').hide();
         }
@@ -232,9 +224,9 @@ function getGameDetailsDiv() {
 }
 
 function deleteGames() {
-    var tableDel =document.getElementById("games")
+    var tableDel = document.getElementById("games")
     var lengthTable = tableDel.rows.length;
-    for (var i =1 ; i<lengthTable; i++) {
+    for (var i = 1; i < lengthTable; i++) {
         tableDel.deleteRow(1);
     }
 
@@ -242,13 +234,13 @@ function deleteGames() {
 
 function getGamesFromServer() {
     $.ajax({
-        url: server+'getAllGames/',
+        url: server + 'getAllGames/',
         type: 'GET',
         contentType: 'application/json',
-        success: function(data){
+        success: function (data) {
             setGames(data);
         },
-        error: function(xhr){
+        error: function (xhr) {
             alert(xhr.responseJSON.message);
         }
     });
@@ -268,31 +260,23 @@ function setGames(data) {
         guestTeam.innerHTML = data[k].guestTeam;
         var dateSplit = data[k].gameDate.split('-').join(', ').split('T');
         var hower = dateSplit[1].split(":");
-        hower = hower[0]+":"+hower[1];
-        dateSplit =dateSplit[0].split(',');
-        gameDate.innerHTML = dateSplit[2]+"-"+dateSplit[1]+"-"+dateSplit[0]+" "+hower;
+        hower = hower[0] + ":" + hower[1];
+        dateSplit = dateSplit[0].split(',');
+        gameDate.innerHTML = dateSplit[2] + "-" + dateSplit[1] + "-" + dateSplit[0] + " " + hower;
         court.innerHTML = data[k].court;
     }
-    for (var i=1; i<table.rows.length ; i++){
-        table.rows[i].addEventListener('click',function (ev) {
+    for (var i = 1; i < table.rows.length; i++) {
+        table.rows[i].addEventListener('click', function (ev) {
             getEventsGameDetails(ev);
         });
     }
 }
 
-function deleteEvents() {
-    var tableDel =document.getElementById("eventsByGame");
-    var lengthTable = tableDel.rows.length;
-    for (var i =1 ; i<lengthTable; i++) {
-        tableDel.deleteRow(1);
-    }
-}
-
 function getEventsGameDetails(ev) {
-    var x =ev.target ;
+    var x = ev.target;
     var element = document.getElementsByClassName('selected');
-    if(element.length >0){
-        element[0].className="";
+    if (element.length > 0) {
+        element[0].className = "";
     }
     ev.target.parentNode.className = 'selected';
     element = document.getElementsByClassName('selected');
@@ -303,39 +287,79 @@ function getEventsGameDetails(ev) {
 
     // Get the <span> element that closes the modal
     var span = document.getElementsByClassName("closeChangeGame")[0];
-        deleteEvents();
-        getEventsFromServer(gameID);
-        modal.style.display = "block";
+    deleteEvents();
+    getEventsFromServer(gameID);
+    modal.style.display = "block";
     // When the user clicks on <span> (x), close the modal
-    span.onclick = function() {
+    span.onclick = function () {
         modal.style.display = "none";
     }
 
     // When the user clicks anywhere outside of the modal, close it
-    window.onclick = function(event) {
+    window.onclick = function (event) {
         if (event.target == modal) {
             modal.style.display = "none";
 
         }
     }
-    $(document).keydown(function(event) {
+    $(document).keydown(function (event) {
         if (event.keyCode == 27) {
             $('#eventsDetails').hide();
         }
     });
 }
 
+function deleteEvents() {
+    var tableDel = document.getElementById("eventsByGame");
+    var lengthTable = tableDel.rows.length;
+    for (var i = 1; i < lengthTable; i++) {
+        tableDel.deleteRow(1);
+    }
+}
+
 function getEventsFromServer(gameId) {
-    var user=localStorage.getItem("user");
+    var user = localStorage.getItem("user");
     $.ajax({
-        url: server+"getEventsByGameId/"+user+"/"+gameId+"/",
+        url: server + "getEventsByGameId/" + user + "/" + gameId + "/",
         type: 'GET',
         contentType: 'application/json',
-        success: function(data){
-            setGames(data);
+        success: function (data) {
+            setEvents(data);
         },
-        error: function(xhr){
+        error: function (xhr) {
             alert(xhr.responseJSON.message);
         }
     });
+}
+
+function setEvents(data) {
+    var table = document.getElementById("eventsByGame");
+    for (var k in data) {
+        var row = table.insertRow(1);
+        var gameId = row.insertCell(0);
+        var eventId = row.insertCell(1);
+        var gameDate = row.insertCell(2);
+        var eventTime = row.insertCell(3);
+        var eventMinute = row.insertCell(4);
+        var gameEventType = row.insertCell(5);
+        var description = row.insertCell(6);
+        gameId.innerHTML = data[k].gameId;
+        eventId.innerHTML = data[k].eventId;
+
+        var dateSplit = data[k].gameDate.split('-').join(', ').split('T');
+        var hour = dateSplit[1].split(":");
+        hour = hour[0] + ":" + hour[1];
+        dateSplit = dateSplit[0].split(',');
+        gameDate.innerHTML = dateSplit[2] + "-" + dateSplit[1] + "-" + dateSplit[0] + " " + hour;
+
+        eventTime.innerHTML = data[k].eventTime;
+        eventMinute.innerHTML = data[k].eventMinute;
+        gameEventType.innerHTML = data[k].gameEventType;
+        description.innerHTML = data[k].description;
+    }
+    // for (var i=1; i<table.rows.length ; i++){
+    //     table.rows[i].addEventListener('click',function (ev) {
+    //         getEventsGameDetails(ev);
+    //     });
+    // }
 }
