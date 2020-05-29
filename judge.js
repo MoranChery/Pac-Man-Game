@@ -89,7 +89,7 @@ function submitAddEvent() {
     var emptyCell = false;
     var email = localStorage.getItem("user");
     var gameId = document.getElementById("gameId").value;
-    var eventTime = document.getElementById("eventTime").value + "";
+    var eventTime = document.getElementById("eventTime").value ;
     var eventMinute = document.getElementById("eventMinute").value;
     var gameEventType = document.getElementById("gameEventType").value;
     var description = document.getElementById("description").value;
@@ -352,7 +352,12 @@ function setEvents(data) {
         dateSplit = dateSplit[0].split(',');
         gameDate.innerHTML = dateSplit[2] + "-" + dateSplit[1] + "-" + dateSplit[0] + " " + hour;
 
-        eventTime.innerHTML = data[k].eventTime;
+        var eventSplit = data[k].eventTime.split('-').join(', ').split('T');
+        var hourT = eventSplit[1].split(':');
+        hourT = hourT[0] + ":" + hourT[1];
+        eventSplit = eventSplit[0].split(',');
+
+        eventTime.innerHTML = hourT;
         eventMinute.innerHTML = data[k].eventMinute;
         gameEventType.innerHTML = data[k].gameEventType;
         description.innerHTML = data[k].description;
