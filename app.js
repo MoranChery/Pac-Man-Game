@@ -203,16 +203,17 @@ function getScreen(){
 }
 
 function sendcheckBoxChoosenToServer(checkBox) {
-    checkBox.checked;
-    $.ajax({
-        url: server+'setSubscriberWantAlertInMail/'+userEmail+'/'+checkBox.checked,
-        type: 'GET',
-        contentType: 'application/json',
-        success: function(data){
-        },
-        error: function(xhr){
-        }
-    });
+    if(checkBox.checked) {
+        $.ajax({
+            url: server + 'setSubscriberWantAlertInMail/' + userEmail ,
+            type: 'GET',
+            contentType: 'application/json',
+            success: function (data) {
+            },
+            error: function (xhr) {
+            }
+        });
+    }
 }
 function deleteSelecteList(){
     var select = document.getElementById("roles");
