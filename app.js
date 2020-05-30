@@ -69,7 +69,7 @@ function logIn() {
             type: 'GET',
             contentType: 'application/json',
             success: function (data) {
-                localStorage.setItem("user", userEmail);
+                setUser(userEmail);
                 connectionToExternalSystems();
                 getRoles();
             },
@@ -79,6 +79,8 @@ function logIn() {
         });
     }
 }
+
+
 
 function deleteTableRow() {
     var tableDel =document.getElementById("alertTable")
@@ -221,4 +223,8 @@ function deleteSelecteList(){
     for (i = length-1; i >= 0; i--) {
         select.options[i] = null;
     }
+}
+
+function setUser(userEmail){
+    localStorage.setItem("user", userEmail);
 }
